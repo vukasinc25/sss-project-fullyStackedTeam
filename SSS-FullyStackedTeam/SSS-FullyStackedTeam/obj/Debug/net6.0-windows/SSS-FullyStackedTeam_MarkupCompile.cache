@@ -1,5 +1,5 @@
 ﻿SSS-FullyStackedTeam
-1.0.0.0
+
 
 winexe
 C#
@@ -10,11 +10,11 @@ none
 false
 TRACE;DEBUG;NET;NET6_0;NETCOREAPP
 C:\Projekti\sss-project-fullyStackedTeam\SSS-FullyStackedTeam\SSS-FullyStackedTeam\App.xaml
-2-194523462
+11407045341
 
-9-1411344395
+3-1233169557
 194-2004305220
-MainWindow.xaml;UI\UserWindow.xaml;
+MainWindow.xaml;
 
 False
 
