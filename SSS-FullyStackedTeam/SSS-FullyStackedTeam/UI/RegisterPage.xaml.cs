@@ -16,32 +16,28 @@ using System.Windows.Shapes;
 namespace SSS_FullyStackedTeam.UI
 {
     /// <summary>
-    /// Interaction logic for MainPage.xaml
+    /// Interaction logic for RegisterPage.xaml
     /// </summary>
-    public partial class MainPage : Page
+    public partial class RegisterPage : Page
     {
         public MainWindow Window { get; set; }
+        public Page PreviousPage { get; set; }
 
-        public MainPage(MainWindow window)
+        public RegisterPage(MainWindow window, Page previousPage)
         {
             InitializeComponent();
             Window = window;
+            PreviousPage = previousPage;
         }
 
-
-        #region Login
-
-        private void BtnLogin_Click(object sender, RoutedEventArgs e)
+        private void BtnConfirm_Click(object sender, RoutedEventArgs e)
         {
-            Window.Content = new LoginPage(Window, this);
+
         }
 
-        private void BtnRegister_Click(object sender, RoutedEventArgs e)
+        private void BtnCancel_Click(object sender, RoutedEventArgs e)
         {
-            Window.Content = new RegisterPage(Window, this);
+            Window.Content = PreviousPage;
         }
-
-        #endregion
-
     }
 }

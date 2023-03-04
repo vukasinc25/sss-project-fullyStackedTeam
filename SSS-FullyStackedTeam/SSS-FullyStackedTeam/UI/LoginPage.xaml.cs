@@ -20,9 +20,24 @@ namespace SSS_FullyStackedTeam.UI
     /// </summary>
     public partial class LoginPage : Page
     {
-        public LoginPage()
+        public MainWindow Window { get; set; }
+        public Page PreviousPage { get; set; }
+
+        public LoginPage(MainWindow window, Page previousPage)
         {
             InitializeComponent();
+            Window = window;
+            PreviousPage = previousPage;
+        }
+
+        private void BtnConfirm_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void BtnCancel_Click(object sender, RoutedEventArgs e)
+        {
+            Window.Content = PreviousPage;
         }
     }
 }
