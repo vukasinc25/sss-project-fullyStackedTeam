@@ -7,7 +7,7 @@ drop table Goals
 drop table Props
 drop table Appointments
 drop table Clients
-drop table Trainers
+drop table Coaches
 drop table Comments
 drop table Users
 drop table Languages
@@ -51,22 +51,22 @@ create table Clients(
 	foreign key (UserId) references Users (id)
 )
 
-create table Trainers(
+create table Coaches(
 	id int identity(1,1) primary key,
 	DiplomaName varchar(40),
 	SertificateName varchar(40),
 	Title varchar(40),
 	NumberSuccessfulAppointments int,
 	UserId int,
-	constraint FK_Users_Trainers
+	constraint FK_Users_Coaches
 	foreign key (UserId) references Users (id)
 )
 
 create table Appointments(
 	id int identity(1,1) primary key,
 	TrainerId int,
-	constraint FK_Trainers_Appointments
-	foreign key (TrainerId) references Trainers (id)
+	constraint FK_Coaches_Appointments
+	foreign key (TrainerId) references Coaches (id)
 
 )
 

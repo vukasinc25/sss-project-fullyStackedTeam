@@ -10,18 +10,38 @@ using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
+using System.Windows.Navigation;
 using System.Windows.Shapes;
 
 namespace SSS_FullyStackedTeam.UI
 {
     /// <summary>
-    /// Interaction logic for Window.xaml
+    /// Interaction logic for MainPage.xaml
     /// </summary>
-    public partial class Window : Window
+    public partial class MainPage : Page
     {
-        public Window()
+        public MainWindow Window { get; set; }
+
+        public MainPage(MainWindow window)
         {
             InitializeComponent();
+            Window = window;
         }
+
+
+        #region Login
+
+        private void BtnLogin_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void BtnRegister_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        #endregion
+
     }
 }
