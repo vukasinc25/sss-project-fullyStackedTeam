@@ -1,4 +1,5 @@
-﻿using System;
+﻿using SSS_FullyStackedTeam.UI;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -23,6 +24,7 @@ namespace SSS_FullyStackedTeam
         public MainWindow()
         {
             InitializeComponent();
+            Content = new MainPage(this);
         }
     }
 }
