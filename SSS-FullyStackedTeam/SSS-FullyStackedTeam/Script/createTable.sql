@@ -2,9 +2,6 @@
 drop table HasGoals
 drop table HasProps
 drop table HasLanguages
-drop table Illneses
-drop table Goals
-drop table Props
 drop table Appointments
 drop table Clients
 drop table Coaches
@@ -70,48 +67,30 @@ create table Appointments(
 
 )
 
-create table Illneses(
-	id int identity(1,1) primary key,
-	Name varchar(40)
-)
-
-create table Goals(
-	id int identity(1,1) primary key,
-	Name varchar(40)
-)
-
-create table Props(
-	id int identity(1,1) primary key,
-	Name varchar(40)
-)
-
 create table HasIllneses(
 	UserId int,
 	IllnesId int,
 	primary key(UserId, IllnesId),
 	constraint FK_Users_HasIllneses
 	foreign key (UserId) references Users (id),
-	constraint FK_Illnesses_HasIllneses
-	foreign key (IllnesId) references Illneses (id)
 )
+
 create table HasGoals(
 	UserId int,
 	GoalId int,
 	primary key(UserId, GoalId),
 	constraint FK_Users_HasGoals
 	foreign key (UserId) references Users (id),
-	constraint FK_Goals_HasGoals
-	foreign key (GoalId) references Goals (id)
 )
+
 create table HasProps(
 	UserId int,
 	PropId int,
 	primary key(UserId, PropId),
 	constraint FK_Clients_HasProps
 	foreign key (UserId) references Users (id),
-	constraint FK_Props_HasProps
-	foreign key (PropId) references Props (id)
 )
+
 create table HasLanguages(
 	UserId int,
 	LangId int,
