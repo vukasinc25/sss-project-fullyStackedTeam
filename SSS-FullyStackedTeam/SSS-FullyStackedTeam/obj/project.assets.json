@@ -8,19 +8,19 @@
     "net6.0-windows7.0": []
   },
   "packageFolders": {
-    "C:\\Users\\vule2\\.nuget\\packages\\": {}
+    "C:\\Users\\Korisnik\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Projekti\\sss-project-fullyStackedTeam\\SSS-FullyStackedTeam\\SSS-FullyStackedTeam\\SSS-FullyStackedTeam.csproj",
+      "projectUniqueName": "C:\\Users\\Korisnik\\Desktop\\SpecifikacijaProjekat\\sss-project-fullyStackedTeam\\SSS-FullyStackedTeam\\SSS-FullyStackedTeam\\SSS-FullyStackedTeam.csproj",
       "projectName": "SSS-FullyStackedTeam",
-      "projectPath": "C:\\Projekti\\sss-project-fullyStackedTeam\\SSS-FullyStackedTeam\\SSS-FullyStackedTeam\\SSS-FullyStackedTeam.csproj",
-      "packagesPath": "C:\\Users\\vule2\\.nuget\\packages\\",
-      "outputPath": "C:\\Projekti\\sss-project-fullyStackedTeam\\SSS-FullyStackedTeam\\SSS-FullyStackedTeam\\obj\\",
+      "projectPath": "C:\\Users\\Korisnik\\Desktop\\SpecifikacijaProjekat\\sss-project-fullyStackedTeam\\SSS-FullyStackedTeam\\SSS-FullyStackedTeam\\SSS-FullyStackedTeam.csproj",
+      "packagesPath": "C:\\Users\\Korisnik\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\Korisnik\\Desktop\\SpecifikacijaProjekat\\sss-project-fullyStackedTeam\\SSS-FullyStackedTeam\\SSS-FullyStackedTeam\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\vule2\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\Korisnik\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -64,7 +64,7 @@
             "privateAssets": "none"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.100\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.402\\RuntimeIdentifierGraph.json"
       }
     }
   }
