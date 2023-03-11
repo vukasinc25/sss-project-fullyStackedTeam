@@ -15,11 +15,11 @@ using System.Windows.Shapes;
 namespace SSS_FullyStackedTeam.UI
 {
     /// <summary>
-    /// Interaction logic for Window.xaml
+    /// Interaction logic for Window1.xaml
     /// </summary>
-    public partial class Window : Window
+    public partial class Window1 : Window
     {
-        public Window()
+        public Window1()
         {
             InitializeComponent();
         }
