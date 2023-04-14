@@ -6,26 +6,38 @@ using System.Threading.Tasks;
 
 namespace SSS_FullyStackedTeam.Model
 {
-    // treba da nasledi User
     public class Coach : ICloneable
     {
-        public string Id { get; set; }
-        public string nameOfTheDiploma { get; set; }
-        public string nameOfTheCertificate { get; set; }
+        public int Id { get; set; }
+        public string DiplomaName { get; set; }
+        public string SertificateName { get; set; }
         public string Title { get; set; }
         public double Profit { get; set; }
-        public int NumberOfFinishedTrainings { get; set; }
+        public int NumberSuccessfulAppointments { get; set; }
+
+        private User user;
+
+        public int UserId { get; set; }
+
+        public User User
+        {
+            get => user;
+            set
+            {
+                user = value;
+                UserId = user.Id;
+            }
+        }
 
         public object Clone()
         {
             return new Coach
             {
-                //dodaj jos atribute iz korinsika(User)
-                nameOfTheCertificate = nameOfTheCertificate,
-                nameOfTheDiploma = nameOfTheDiploma,
+                DiplomaName = DiplomaName,
+                SertificateName = SertificateName,
                 Title = Title,
                 Profit = Profit,
-                NumberOfFinishedTrainings = NumberOfFinishedTrainings
+                User = User.Clone() as User
             };
         }
     }

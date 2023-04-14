@@ -1,12 +1,12 @@
-﻿<Page x:Class="SSS_FullyStackedTeam.UI.RegisterPage"
+﻿<Page x:Class="SSSProject.UI.ExtraClientInfo"
       xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
       xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
-      xmlns:local="clr-namespace:SSS_FullyStackedTeam.UI"
+      xmlns:local="clr-namespace:SSSProject.UI"
       mc:Ignorable="d" 
       d:DesignHeight="550" d:DesignWidth="800"
-      Title="RegisterPage">
+      Title="ExtraClientInfo">
     <Page.Resources>
         <Style TargetType="Label">
             <Setter Property="Height" Value="26"/>
@@ -32,6 +32,7 @@
 
     <ScrollViewer>
         <Grid>
+
             <Grid.ColumnDefinitions>
                 <ColumnDefinition></ColumnDefinition>
                 <ColumnDefinition></ColumnDefinition>
@@ -41,73 +42,41 @@
             <StackPanel Grid.Column="1"
                     VerticalAlignment="Center">
 
-                <Label Content="First name:"></Label>
+                <Label Content="Height:"></Label>
 
-                <TextBox Name="TxtFirstName"
-                         Text="{Binding Path= FirstName}"></TextBox>
+                <TextBox Name="TxtHeight"
+                         Text="{Binding Path = Height}"></TextBox>
 
-                <Label Content="Last name:"></Label>
+                <Label Content="Weight:"></Label>
 
-                <TextBox Name="TxtLastName"
-                         Text="{Binding Path= LastName}"></TextBox>
+                <TextBox Name="TxtWeight"
+                         Text="{Binding Path = Weight}"></TextBox>
 
-                <Label Content="Email:"></Label>
+                <Label Content="Goals:"></Label>
 
-                <TextBox Name="TxtEmail"
-                         Text="{Binding Path= Email}"></TextBox>
-
-                <Label Content="Password:"></Label>
-
-                <PasswordBox Name="PwbLoginPassword"></PasswordBox>
-
-                <Label Content="Phone number:"></Label>
-
-                <TextBox Name="TxtTel"
-                         Text="{Binding Path= Tel}"></TextBox>
-
-                <Label Content="Credit card:"></Label>
-
-                <TextBox Name="TxtCreditCard"
-                         Text="{Binding Path= CreditCard}"></TextBox>
-
-                <Label Content="Street:"></Label>
-                
-                <TextBox Name="TxtStreet"
-                         Text="{Binding Path= Street}"></TextBox>
-
-                <Label Content="City:"></Label>
-                
-                <TextBox Name="TxtCity"
-                         Text="{Binding Path= City}"></TextBox>
-                
-                <Label Content="Country:"></Label>
-
-                <TextBox Name="TxtCountry"
-                         Text="{Binding Path= Country}"></TextBox>
-
-                <Label Content="Primary language:"></Label>
-
-                <ComboBox Name="CbLanguages">
-                    
-                </ComboBox>
-
-                <Label Content="Secondary languages:"></Label>
-
-                <ListBox Name="LbxLanguages"
+                <ListBox x:Name="LbxGoals"
                          SelectionMode="Multiple">
-                    
                 </ListBox>
 
-                <Label Content="Select user type:"></Label>
+                <Label Content="Illnesses:"></Label>
 
-                <RadioButton Content="Client"
-                             Name="RdbClient"
-                             GroupName="type"
-                             IsChecked="True"></RadioButton>
-                
-                <RadioButton Content="Coach"
-                             Name="RdbCoach"
-                             GroupName="type"></RadioButton>
+                <ListBox Name="LbxIllnesses"
+                         SelectionMode="Multiple">
+                    
+                    <ListBoxItem>ghjk</ListBoxItem>
+                    <ListBoxItem>brW</ListBoxItem>
+                    <ListBoxItem>rgwe</ListBoxItem>
+                </ListBox>
+
+                <Label Content="Props:"></Label>
+
+                <ListBox Name="LbxProps"
+                         SelectionMode="Multiple">
+                    
+                    <ListBoxItem>ghjk</ListBoxItem>
+                    <ListBoxItem>brW</ListBoxItem>
+                    <ListBoxItem>rgwe</ListBoxItem>
+                </ListBox>
 
                 <WrapPanel HorizontalAlignment="Right">
 

@@ -10,10 +10,8 @@ namespace SSS_FullyStackedTeam.Service
     interface IUserService
     {
         List<User> GetAll();
-        List<User> GetActiveUsers();
-        List<User> GetByUserType(string type);
-        void Add(User user);
-        void AddRegistered(User user);
+        User GetById(int id);
+        int Add(User user);
         void Update(int id, User user);
         void Delete(int id);
     }

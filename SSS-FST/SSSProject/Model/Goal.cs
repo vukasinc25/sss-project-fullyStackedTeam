@@ -4,21 +4,12 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace SSS_FullyStackedTeam.Model
+namespace SSSProject.Model
 {
-    public class Language
+    public class Goal
     {
         public int Id { get; set; }
         public string Name { get; set; }
-
-        public object Clone()
-        {
-            return new Language
-            {
-                Id = Id,
-                Name = Name
-            };
-        }
 
         public override string ToString()
         {

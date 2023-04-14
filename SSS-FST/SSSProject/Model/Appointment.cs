@@ -12,11 +12,11 @@ namespace SSS_FullyStackedTeam.Model
         public DateTime DateAndTimeOfStart { get; set; }
         public TimeSpan Duration { get; set; }
         public double Price { get; set; }
-        public Boolean Status { get; set; }
+        public bool Status { get; set; }
 
         public object Clone()
         {
-            Appointment appointment = new Appointment
+            return new Appointment
             {
                 Id = Id,
                 DateAndTimeOfStart = DateAndTimeOfStart,
@@ -24,7 +24,6 @@ namespace SSS_FullyStackedTeam.Model
                 Price = Price,
                 Status = Status
             };
-            return appointment;
         }
     }
 }

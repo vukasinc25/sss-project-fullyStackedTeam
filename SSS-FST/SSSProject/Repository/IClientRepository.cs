@@ -1,4 +1,5 @@
 ﻿using SSS_FullyStackedTeam.Model;
+using SSSProject.Model;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -14,5 +15,8 @@ namespace SSS_FullyStackedTeam.Repository
         int Add(Client client);
         void Update(int id, Client client);
         void Delete(int id);
+        List<Goal> GetAllGoals();
+        void GetAllIllnesses();
+        void GetAllProps();
     }
 }

@@ -10,30 +10,35 @@ namespace SSS_FullyStackedTeam.Service
 {
     internal class CoachService : ICoachService
     {
-        private ICouchRepository couchRepository;
+        private ICouchRepository coachRepository;
+
+        public CoachService()
+        {
+            coachRepository = new CoachRepository();
+        }
         public int Add(Coach coach)
         {
-            return couchRepository.Add(coach);
+            return coachRepository.Add(coach);
         }
 
         public void Delete(int id)
         {
-            couchRepository.Delete(id);
+            coachRepository.Delete(id);
         }
 
         public List<Coach> GetAll()
         {
-            return couchRepository.GetAll();
+            return coachRepository.GetAll();
         }
 
         public Coach GetById(int id)
         {
-            return couchRepository.GetById(id);
+            return coachRepository.GetById(id);
         }
 
         public void Update(int id, Coach coach)
         {
-            couchRepository.Update(id, coach);
+            coachRepository.Update(id, coach);
         }
     }
 }

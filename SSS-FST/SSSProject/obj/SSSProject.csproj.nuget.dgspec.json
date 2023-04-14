@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Projekti\\sss-project-fullyStackedTeam\\SSS-FST\\SSSProject\\SSSProject.csproj": {}
+    "D:\\C\\SSSProject\\SSSProject\\SSSProject\\SSSProject.csproj": {}
   },
   "projects": {
-    "C:\\Projekti\\sss-project-fullyStackedTeam\\SSS-FST\\SSSProject\\SSSProject.csproj": {
+    "D:\\C\\SSSProject\\SSSProject\\SSSProject\\SSSProject.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Projekti\\sss-project-fullyStackedTeam\\SSS-FST\\SSSProject\\SSSProject.csproj",
+        "projectUniqueName": "D:\\C\\SSSProject\\SSSProject\\SSSProject\\SSSProject.csproj",
         "projectName": "SSSProject",
-        "projectPath": "C:\\Projekti\\sss-project-fullyStackedTeam\\SSS-FST\\SSSProject\\SSSProject.csproj",
-        "packagesPath": "C:\\Users\\vule2\\.nuget\\packages\\",
-        "outputPath": "C:\\Projekti\\sss-project-fullyStackedTeam\\SSS-FST\\SSSProject\\obj\\",
+        "projectPath": "D:\\C\\SSSProject\\SSSProject\\SSSProject\\SSSProject.csproj",
+        "packagesPath": "C:\\Users\\Mohaci\\.nuget\\packages\\",
+        "outputPath": "D:\\C\\SSSProject\\SSSProject\\SSSProject\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\vule2\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\Mohaci\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -39,6 +39,12 @@
       "frameworks": {
         "net6.0-windows7.0": {
           "targetAlias": "net6.0-windows",
+          "dependencies": {
+            "System.Data.SqlClient": {
+              "target": "Package",
+              "version": "[4.8.5, )"
+            }
+          },
           "imports": [
             "net461",
             "net462",
@@ -58,7 +64,7 @@
               "privateAssets": "none"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.100\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.201\\RuntimeIdentifierGraph.json"
         }
       }
     }

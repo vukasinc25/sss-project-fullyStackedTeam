@@ -1,4 +1,5 @@
 ﻿using SSS_FullyStackedTeam.Model;
+using SSS_FullyStackedTeam.Repository;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,39 +10,35 @@ namespace SSS_FullyStackedTeam.Service
 {
     public class UserService : IUserService
     {
-        public void Add(User user)
-        {
-            throw new NotImplementedException();
-        }
+        private IUserRepository userRepository;
 
-        public void AddRegistered(User user)
+        public UserService()
         {
-            throw new NotImplementedException();
+            userRepository = new UserRepository();
+        }
+        public int Add(User user)
+        {
+            return userRepository.Add(user);
         }
 
         public void Delete(int id)
         {
-            throw new NotImplementedException();
-        }
-
-        public List<User> GetActiveUsers()
-        {
-            throw new NotImplementedException();
+            userRepository.Delete(id);
         }
 
         public List<User> GetAll()
         {
-            throw new NotImplementedException();
+            return userRepository.GetAll();
         }
 
-        public List<User> GetByUserType(string type)
+        public User GetById(int id)
         {
-            throw new NotImplementedException();
+            return userRepository.GetById(id);
         }
 
         public void Update(int id, User user)
         {
-            throw new NotImplementedException();
+            userRepository.Update(id, user);
         }
     }
 }
