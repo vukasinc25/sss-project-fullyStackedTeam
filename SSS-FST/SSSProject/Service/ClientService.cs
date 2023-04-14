@@ -1,5 +1,6 @@
 ﻿using SSS_FullyStackedTeam.Model;
 using SSS_FullyStackedTeam.Repository;
+using SSSProject.Model;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -11,6 +12,12 @@ namespace SSS_FullyStackedTeam.Service
     public class ClientService : IClientService
     {
         private IClientRepository clientRepository;
+
+        public ClientService()
+        {
+            clientRepository = new ClientRepository();
+        }
+
         public int Add(Client client)
         {
             return clientRepository.Add(client);
@@ -24,6 +31,21 @@ namespace SSS_FullyStackedTeam.Service
         public List<Client> GetAll()
         {
             return clientRepository.GetAll();
+        }
+
+        public List<Goal> GetAllGoals()
+        {
+            return clientRepository.GetAllGoals();
+        }
+
+        public void GetAllIllnesses()
+        {
+            throw new NotImplementedException();
+        }
+
+        public void GetAllProps()
+        {
+            throw new NotImplementedException();
         }
 
         public Client GetById(int id)
