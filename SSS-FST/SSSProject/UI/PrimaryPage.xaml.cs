@@ -1,4 +1,5 @@
 ﻿using SSS_FullyStackedTeam.Model;
+using SSS_FullyStackedTeam.Service;
 using SSS_FullyStackedTeam.UI;
 using SSSProject.Model;
 using SSSProject.Service;
@@ -26,14 +27,22 @@ namespace SSSProject.UI
     {
         public MainWindow Window { get; set; }
 
-        private Client Client = Data.Instance.LoggedInClient;
+        private IClientService clientService = new ClientService();
+        private ICoachService coachService = new CoachService();
 
-        private Coach Coach = Data.Instance.LoggedInCoach;
+        private Client Client;
+
+        private Coach Coach;
 
         public PrimaryPage(MainWindow window)
         {
             InitializeComponent();
             Window = window;
+            Data.Instance.LoggedInClient = clientService.GetById(Data.Instance.LoggedInClient.Id);
+            //Data.Instance.LoggedInCoach = coachService.GetById(Data.Instance.LoggedInCoach.Id);
+
+            Client = Data.Instance.LoggedInClient;
+            Coach = Data.Instance.LoggedInCoach;
 
             if (Coach.SertificateName == null)
             {
@@ -48,6 +57,23 @@ namespace SSSProject.UI
         private void BtnLogOut_Click(object sender, RoutedEventArgs e)
         {
             Window.Content = new MainPage(Window);
+        }
+
+        private void BtnEditUser_Click(object sender, RoutedEventArgs e)
+        {
+            if (Coach.SertificateName == null)
+            {
+                Window.Content = new RegisterPage(Window, this, Client.User);
+            }
+            else
+            {
+                Window.Content = new RegisterPage(Window, this, Coach.User);
+            }
+        }
+
+        private void BtnEditExtraInfo_Click(object sender, RoutedEventArgs e)
+        {
+
         }
     }
 }

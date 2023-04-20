@@ -16,7 +16,7 @@ namespace SSS_FullyStackedTeam.Service
         void Update(int id, Client client);
         void Delete(int id);
         List<Goal> GetAllGoals();
-        void GetAllIllnesses();
-        void GetAllProps();
+        List<Illness> GetAllIllnesses();
+        List<Prop> GetAllProps();
     }
 }

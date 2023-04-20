@@ -83,7 +83,7 @@ create table Appointments(
 	TrainerId int,
 	constraint FK_Coaches_Appointments
 	foreign key (TrainerId) references Coaches (id)
-
+	--TODO
 )
 
 create table HasIllneses(
@@ -92,6 +92,8 @@ create table HasIllneses(
 	primary key(ClientId, IllnessId),
 	constraint FK_Users_HasIllnesses
 	foreign key (ClientId) references Clients (id),
+	constraint FK_Illnesses_HasIllnesses
+	foreign key (IllnessId) references Illnesses (id),
 )
 
 create table HasGoals(
@@ -100,6 +102,8 @@ create table HasGoals(
 	primary key(ClientId, GoalId),
 	constraint FK_Users_HasGoals
 	foreign key (ClientId) references Clients (id),
+	constraint FK_Goals_HasGoals
+	foreign key (GoalId) references Goals (id),
 )
 
 create table HasProps(
@@ -108,6 +112,8 @@ create table HasProps(
 	primary key(ClientId, PropId),
 	constraint FK_Clients_HasProps
 	foreign key (ClientId) references Clients (id),
+	constraint FK_Props_HasProps
+	foreign key (PropId) references Props (id),
 )
 
 create table HasLanguages(

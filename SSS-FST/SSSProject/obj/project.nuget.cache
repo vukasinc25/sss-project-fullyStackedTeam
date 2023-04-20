@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "ANGVkeLY7RraUG8XuCK8PYR2KQ+imxdPzw0woB+6YCyHYoIvEFawlIdtgpan/LrCLhVi6rkkuE1KI2DKEetctQ==",
+  "dgSpecHash": "GlsDxK6nUPp4L+I9SYLRXtp/KekDegv6ZTO4wXwHuwXGiLF8qCwBYrokOpicnhBlfusF08/V/hIwmZrH6Xdr1Q==",
   "success": true,
-  "projectFilePath": "D:\\C\\SSSProject\\SSSProject\\SSSProject\\SSSProject.csproj",
+  "projectFilePath": "D:\\C\\FullyStacked\\SSS-FST\\SSSProject\\SSSProject.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Mohaci\\.nuget\\packages\\microsoft.netcore.platforms\\3.1.0\\microsoft.netcore.platforms.3.1.0.nupkg.sha512",
     "C:\\Users\\Mohaci\\.nuget\\packages\\microsoft.win32.registry\\4.7.0\\microsoft.win32.registry.4.7.0.nupkg.sha512",

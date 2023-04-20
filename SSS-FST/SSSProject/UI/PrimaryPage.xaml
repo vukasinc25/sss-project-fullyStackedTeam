@@ -5,7 +5,7 @@
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:SSSProject.UI"
       mc:Ignorable="d" 
-      d:DesignHeight="550" d:DesignWidth="800"
+      d:DesignHeight="650" d:DesignWidth="900"
       Title="PrimaryPage">
     <Page.Resources>
         <Style TargetType="Label">
@@ -17,6 +17,11 @@
             <Setter Property="Height" Value="26"/>
             <Setter Property="Margin" Value="0 0 0 0"></Setter>
             <Setter Property="HorizontalAlignment" Value="Right"></Setter>
+        </Style>
+        <Style TargetType="Button">
+            <Setter Property="Width" Value="65"></Setter>
+            <Setter Property="Height" Value="25"></Setter>
+            <Setter Property="Margin" Value="0 10 10 0"></Setter>
         </Style>
     </Page.Resources>
 
@@ -158,6 +163,73 @@
                                      IsEnabled="False"
                                      ItemsSource="{Binding Path=User.SecondaryLanguages}"></ListBox>
 
+                            <Label Grid.Column="2"
+                                   Grid.Row="0"
+                                   Content="Height:"
+                                   Style="{StaticResource ResourceKey=ProfileLabel}"></Label>
+
+                            <Label Grid.Column="3"
+                                   Grid.Row="0"
+                                   Content="{Binding Path=Height}"></Label>
+
+                            <Label Grid.Column="2"
+                                   Grid.Row="1"
+                                   Content="Weight:"
+                                   Style="{StaticResource ResourceKey=ProfileLabel}"></Label>
+
+                            <Label Grid.Column="3"
+                                   Grid.Row="1"
+                                   Content="{Binding Path=Weight}"></Label>
+
+                            <Label Grid.Column="2"
+                                   Grid.Row="2"
+                                   Content="Goals:"
+                                   Style="{StaticResource ResourceKey=ProfileLabel}"></Label>
+
+                            <ListBox Name="LbxGoals"
+                                     Grid.Column="3"
+                                     Grid.Row="2"
+                                     IsEnabled="False"
+                                     Grid.RowSpan="2"
+                                     ItemsSource="{Binding Path=Goals}"></ListBox>
+
+                            <Label Grid.Column="2"
+                                   Grid.Row="4"
+                                   Content="Illnesses:"
+                                   Style="{StaticResource ResourceKey=ProfileLabel}"></Label>
+
+                            <ListBox Name="LbxIllnesses"
+                                     Grid.Column="3"
+                                     Grid.Row="4"
+                                     IsEnabled="False"
+                                     Grid.RowSpan="2"
+                                     ItemsSource="{Binding Path=Illnesses}"></ListBox>
+
+                            <Label Grid.Column="2"
+                                   Grid.Row="6"
+                                   Content="Props:"
+                                   Style="{StaticResource ResourceKey=ProfileLabel}"></Label>
+
+                            <ListBox Name="LbxProps"
+                                     Grid.Column="3"
+                                     Grid.Row="6"
+                                     IsEnabled="False"
+                                     Grid.RowSpan="2"
+                                     ItemsSource="{Binding Path=Props}"></ListBox>
+
+                            <Button Grid.Column="1"
+                                    Grid.Row="10"
+                                    Name="BtnEditUser"
+                                    Content="Edit"
+                                    HorizontalAlignment="Left"
+                                    Click="BtnEditUser_Click"></Button>
+
+                            <Button Grid.Column="3"
+                                    Grid.Row="10"
+                                    Name="BtnEditExtraInfo"
+                                    Content="Edit"
+                                    HorizontalAlignment="Left" 
+                                    Click="BtnEditExtraInfo_Click"></Button>
 
                         </Grid>
                     </ScrollViewer>

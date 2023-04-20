@@ -64,6 +64,7 @@ namespace SSS_FullyStackedTeam.Model
                 Country = Country,
                 CreditCard = CreditCard,
                 TimeZone = TimeZone,
+                PrimaryLanguage = PrimaryLanguage,
                 SecondaryLanguages = newList
             };
         }

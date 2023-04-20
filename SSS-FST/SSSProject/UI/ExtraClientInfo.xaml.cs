@@ -31,13 +31,19 @@ namespace SSSProject.UI
         private IClientService clientService = new ClientService();
 
         private List<Goal> goals;
+        private List<Illness> illnesses;
+        private List<Prop> props;
 
         public ExtraClientInfo(MainWindow window)
         {
             InitializeComponent();
             Window = window;
             goals = clientService.GetAllGoals();
+            illnesses = clientService.GetAllIllnesses();
+            props = clientService.GetAllProps();
             LbxGoals.ItemsSource = goals;
+            LbxIllnesses.ItemsSource = illnesses;
+            LbxProps.ItemsSource = props;
 
             DataContext = client;
         }
@@ -49,12 +55,12 @@ namespace SSSProject.UI
                 client.Goals.Add(goal);
             }
 
-            foreach(string illness in LbxIllnesses.SelectedItems)
+            foreach(Illness illness in LbxIllnesses.SelectedItems)
             {
                 client.Illnesses.Add(illness);
             }
 
-            foreach(string prop in LbxProps.SelectedItems)
+            foreach(Prop prop in LbxProps.SelectedItems)
             {
                 client.Props.Add(prop);
             }

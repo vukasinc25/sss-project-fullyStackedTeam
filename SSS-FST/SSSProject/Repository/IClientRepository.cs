@@ -16,7 +16,11 @@ namespace SSS_FullyStackedTeam.Repository
         void Update(int id, Client client);
         void Delete(int id);
         List<Goal> GetAllGoals();
-        void GetAllIllnesses();
-        void GetAllProps();
+        Goal GetGoalById(int id);
+        List<Illness> GetAllIllnesses();
+        Illness GetIllnessById(int id);
+        List<Prop> GetAllProps();
+        Prop GetPropById(int id);
+
     }
 }

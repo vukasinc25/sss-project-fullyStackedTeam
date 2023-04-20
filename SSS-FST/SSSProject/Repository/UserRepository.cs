@@ -196,6 +196,7 @@ namespace SSS_FullyStackedTeam.Repository
                         Street = @Street,
                         City = @City,
                         Country = @Country,
+                        PrimaryLanguageId = @PrimaryLanguageId
                         where id = @id";
 
                 command.Parameters.Add(new SqlParameter("id", id));
@@ -207,6 +208,7 @@ namespace SSS_FullyStackedTeam.Repository
                 command.Parameters.Add(new SqlParameter("Street", user.Street));
                 command.Parameters.Add(new SqlParameter("City", user.City));
                 command.Parameters.Add(new SqlParameter("Country", user.Country));
+                command.Parameters.Add(new SqlParameter("PrimaryLanguageId", user.PrimaryLanguageId));
 
                 command.ExecuteScalar();
             }

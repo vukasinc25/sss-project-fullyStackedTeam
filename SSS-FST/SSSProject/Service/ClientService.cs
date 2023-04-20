@@ -38,14 +38,14 @@ namespace SSS_FullyStackedTeam.Service
             return clientRepository.GetAllGoals();
         }
 
-        public void GetAllIllnesses()
+        public List<Illness> GetAllIllnesses()
         {
-            throw new NotImplementedException();
+            return clientRepository.GetAllIllnesses();
         }
 
-        public void GetAllProps()
+        public List<Prop> GetAllProps()
         {
-            throw new NotImplementedException();
+            return clientRepository.GetAllProps();
         }
 
         public Client GetById(int id)

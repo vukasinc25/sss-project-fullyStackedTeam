@@ -475,11 +475,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\C\\SSSProject\\SSSProject\\SSSProject\\SSSProject.csproj",
+      "projectUniqueName": "D:\\C\\FullyStacked\\SSS-FST\\SSSProject\\SSSProject.csproj",
       "projectName": "SSSProject",
-      "projectPath": "D:\\C\\SSSProject\\SSSProject\\SSSProject\\SSSProject.csproj",
+      "projectPath": "D:\\C\\FullyStacked\\SSS-FST\\SSSProject\\SSSProject.csproj",
       "packagesPath": "C:\\Users\\Mohaci\\.nuget\\packages\\",
-      "outputPath": "D:\\C\\SSSProject\\SSSProject\\SSSProject\\obj\\",
+      "outputPath": "D:\\C\\FullyStacked\\SSS-FST\\SSSProject\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\Mohaci\\AppData\\Roaming\\NuGet\\NuGet.Config",
