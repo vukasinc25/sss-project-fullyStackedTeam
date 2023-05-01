@@ -81,7 +81,7 @@ namespace SSS_FullyStackedTeam.UI
 
                     if (Data.Instance.LoggedInCoach.DiplomaName == "")
                     {
-                        //Window.Content = new 
+                        Window.Content = new ExtraCoachInfo(Window);
                     }
                     else
                     {

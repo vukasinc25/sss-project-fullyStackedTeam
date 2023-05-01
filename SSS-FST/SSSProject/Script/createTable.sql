@@ -125,3 +125,6 @@ create table HasLanguages(
 	constraint FK_Languages_HasLanguages
 	foreign key (LangId) references Languages (id)
 )
+
+select * from Users
+select * from Coaches

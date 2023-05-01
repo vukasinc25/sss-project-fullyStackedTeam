@@ -72,7 +72,14 @@ namespace SSSProject.UI
 
         private void BtnCancel_Click(object sender, RoutedEventArgs e)
         {
-            Window.Content = new MainPage(Window);
+            if (client.Id != 0)
+            {
+                Window.Content = new PrimaryPage(Window);
+            }
+            else
+            {
+                Window.Content = new MainPage(Window);
+            }
         }
     }
 }

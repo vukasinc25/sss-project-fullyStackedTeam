@@ -46,10 +46,50 @@ namespace SSSProject.UI
 
             if (Coach.SertificateName == null)
             {
+                lblHight.Visibility = Visibility.Visible;
+                lblHight1.Visibility = Visibility.Visible;
+                lblWeight.Visibility = Visibility.Visible;
+                lblWeight1.Visibility = Visibility.Visible;
+                lblGoals.Visibility = Visibility.Visible;
+                LbxGoals.Visibility = Visibility.Visible;
+                lblIllnesses.Visibility = Visibility.Visible;
+                LbxIllnesses.Visibility = Visibility.Visible;
+                lblProps.Visibility = Visibility.Visible;
+                LbxProps.Visibility = Visibility.Visible;
+                lblDiploma.Visibility = Visibility.Collapsed;
+                lblDiploma1.Visibility = Visibility.Collapsed;
+                lblSertificat.Visibility = Visibility.Collapsed;
+                lblSertificat1.Visibility = Visibility.Collapsed;
+                lblTitle.Visibility = Visibility.Collapsed;
+                lblTitle1.Visibility = Visibility.Collapsed;
+                lblProfit.Visibility = Visibility.Collapsed;
+                lblProfit1.Visibility = Visibility.Collapsed;
+                lblSuccessfulApointments.Visibility = Visibility.Collapsed;
+                lblSuccessfulApointments1.Visibility = Visibility.Collapsed;
                 DataContext = Client;
             }
             else
             {
+                lblDiploma.Visibility = Visibility.Visible;
+                lblDiploma1.Visibility = Visibility.Visible;
+                lblSertificat.Visibility = Visibility.Visible;
+                lblSertificat1.Visibility = Visibility.Visible;
+                lblTitle.Visibility = Visibility.Visible;
+                lblTitle1.Visibility = Visibility.Visible;
+                lblProfit.Visibility = Visibility.Visible;
+                lblProfit1.Visibility = Visibility.Visible;
+                lblSuccessfulApointments.Visibility = Visibility.Visible;
+                lblSuccessfulApointments1.Visibility = Visibility.Visible;
+                lblHight.Visibility = Visibility.Collapsed;
+                lblHight1.Visibility = Visibility.Collapsed;
+                lblWeight.Visibility = Visibility.Collapsed;
+                lblWeight1.Visibility = Visibility.Collapsed;
+                lblGoals.Visibility = Visibility.Collapsed;
+                LbxGoals.Visibility = Visibility.Collapsed;
+                lblIllnesses.Visibility = Visibility.Collapsed;
+                LbxIllnesses.Visibility = Visibility.Collapsed;
+                lblProps.Visibility = Visibility.Collapsed;
+                LbxProps.Visibility = Visibility.Collapsed;
                 DataContext = Coach;
             }
         }
@@ -73,7 +113,14 @@ namespace SSSProject.UI
 
         private void BtnEditExtraInfo_Click(object sender, RoutedEventArgs e)
         {
-
+            if(Client.Id != 0)
+            {
+                Window.Content = new ExtraClientInfo(Window);
+            }
+            else
+            {
+                Window.Content = new ExtraCoachInfo(Window);
+            }
         }
     }
 }

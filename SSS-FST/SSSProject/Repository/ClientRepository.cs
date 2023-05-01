@@ -272,7 +272,7 @@ namespace SSS_FullyStackedTeam.Repository
                 }
             }
 
-            return null;
+            return new Client();
         }
 
         public Goal GetGoalById(int id)

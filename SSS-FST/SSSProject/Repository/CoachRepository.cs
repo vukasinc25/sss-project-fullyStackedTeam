@@ -74,12 +74,56 @@ namespace SSS_FullyStackedTeam.Repository
 
         public Coach GetById(int id)
         {
-            throw new NotImplementedException();
+            using (SqlConnection conn = new SqlConnection(Config.CONNECTION_STRING))
+            {
+                string commandText = $"select * from Coaches where id = {id}";
+                SqlDataAdapter dataAdapter = new SqlDataAdapter(commandText, conn);
+
+                DataSet ds = new DataSet();
+
+                dataAdapter.Fill(ds, "Coaches");
+                if (ds.Tables["Coaches"].Rows.Count > 0)
+                {
+                    var row = ds.Tables["Coaches"].Rows[0];
+                    var coach = new Coach()
+                    {
+                        Id = (int)row["Id"],
+                        DiplomaName = (string)row["DiplomaName"],
+                        SertificateName = (string)row["SertificateName"],
+                        Title = (string)row["Title"],
+                        Profit = (double)row["Profit"],
+                        NumberSuccessfulAppointments = (int)row["NumberSuccessfulAppointments"],
+                        UserId = (int)row["UserId"]
+                    };
+
+                    coach.User = userRepository.GetById(coach.UserId);
+
+                    SqlCommand command2 = new SqlCommand();
+                    command2.CommandText = "select * from Has";
+
+                    return coach;
+                }
+            }
+            return new Coach();
         }
 
         public void Update(int id, Coach coach)
         {
-            throw new NotImplementedException();
+            using (SqlConnection conn = new SqlConnection(Config.CONNECTION_STRING))
+            {
+                conn.Open();
+                SqlCommand command = conn.CreateCommand();
+                command.CommandText = @"update Coaches set DiplomaName = @DiplomaName, SertificateName = @SertificateName, Title = @Title, NumberSuccessfulAppointments = @NumberSuccessfulAppointments, Profit = @Profit where id = @id";
+
+                command.Parameters.Add(new SqlParameter("DiplomaName", coach.DiplomaName));
+                command.Parameters.Add(new SqlParameter("SertificateName", coach.SertificateName));
+                command.Parameters.Add(new SqlParameter("Title", coach.Title));
+                command.Parameters.Add(new SqlParameter("NumberSuccessfulAppointments", coach.NumberSuccessfulAppointments));
+                command.Parameters.Add(new SqlParameter("Profit", coach.Profit));
+                command.Parameters.Add(new SqlParameter("id", id));
+
+                command.ExecuteScalar();
+            }
         }
     }
 }

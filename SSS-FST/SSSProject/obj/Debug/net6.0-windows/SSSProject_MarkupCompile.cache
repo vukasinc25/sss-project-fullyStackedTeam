@@ -4,17 +4,17 @@
 winexe
 C#
 .cs
-D:\C\FullyStacked\SSS-FST\SSSProject\obj\Debug\net6.0-windows\
+C:\Users\crnce\Desktop\SSS\sss-project-fullyStackedTeam\SSS-FST\SSSProject\obj\Debug\net6.0-windows\
 SSSProject
 none
 false
 TRACE;DEBUG;NET;NET6_0;NETCOREAPP
-D:\C\FullyStacked\SSS-FST\SSSProject\App.xaml
-6-494125522
+C:\Users\crnce\Desktop\SSS\sss-project-fullyStackedTeam\SSS-FST\SSSProject\App.xaml
+71303144274
 
-382000351284
-1952034182645
-MainWindow.xaml;UI\ExtraClientInfo.xaml;UI\LoginPage.xaml;UI\MainPage.xaml;UI\PrimaryPage.xaml;UI\RegisterPage.xaml;
+39542566786
+1951802588109
+MainWindow.xaml;UI\ExtraClientInfo.xaml;UI\ExtraCoachInfo.xaml;UI\LoginPage.xaml;UI\MainPage.xaml;UI\PrimaryPage.xaml;UI\RegisterPage.xaml;
 
 False
 
