@@ -317,8 +317,8 @@
                                   CanUserAddRows="False"
                                   IsReadOnly="True"
                                   SelectionMode="Single"
-                                  Name="DgReservedClasses" 
-                                  AutoGeneratingColumn="DgReservedClasses_AutoGeneratingColumn">
+                                  Name="DgAppointments" 
+                                  AutoGeneratingColumn="DgAppointments_AutoGeneratingColumn">
 
                         </DataGrid>
 

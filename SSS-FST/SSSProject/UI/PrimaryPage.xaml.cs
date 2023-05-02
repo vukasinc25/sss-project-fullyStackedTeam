@@ -94,6 +94,8 @@ namespace SSSProject.UI
             }
         }
 
+        #region Profile
+
         private void BtnLogOut_Click(object sender, RoutedEventArgs e)
         {
             Window.Content = new MainPage(Window);
@@ -123,9 +125,14 @@ namespace SSSProject.UI
             }
         }
 
-        private void DgReservedClasses_AutoGeneratingColumn(object sender, DataGridAutoGeneratingColumnEventArgs e)
-        {
+        #endregion
 
+        private void DgAppointments_AutoGeneratingColumn(object sender, DataGridAutoGeneratingColumnEventArgs e)
+        {
+            if (e.PropertyName == "Id")
+            {
+                e.Column.Visibility = Visibility.Collapsed;
+            }
         }
     }
 }
