@@ -66,6 +66,7 @@ namespace SSSProject.UI
                 lblProfit1.Visibility = Visibility.Collapsed;
                 lblSuccessfulApointments.Visibility = Visibility.Collapsed;
                 lblSuccessfulApointments1.Visibility = Visibility.Collapsed;
+                BtnAddAppointment.Visibility = Visibility.Collapsed;
                 DataContext = Client;
             }
             else
@@ -90,6 +91,8 @@ namespace SSSProject.UI
                 LbxIllnesses.Visibility = Visibility.Collapsed;
                 lblProps.Visibility = Visibility.Collapsed;
                 LbxProps.Visibility = Visibility.Collapsed;
+                BtnBookAppointment.Visibility = Visibility.Collapsed;
+                BtnCancelAppointment.Visibility = Visibility.Collapsed;
                 DataContext = Coach;
             }
         }
