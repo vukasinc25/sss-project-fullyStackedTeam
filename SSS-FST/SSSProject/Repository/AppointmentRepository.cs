@@ -13,21 +13,24 @@ namespace SSS_FullyStackedTeam.Repository
     public class AppointmentRepository : IAppointmentRepository
     {
         CoachRepository coachRepository = new CoachRepository();
+        ClientRepository clientRepository = new ClientRepository();
         public int Add(Appointment appointment)
         {
             using (SqlConnection conn = new SqlConnection(Config.CONNECTION_STRING))
             {
                 conn.Open();
                 SqlCommand command = conn.CreateCommand();
-                command.CommandText = @"insert into Appointments (TimeOfStart, Duration, Price, Status, CoachId) 
+                command.CommandText = @"insert into Appointments (TimeOfStart, Duration, Price, Status, ClientId, CoachId) 
                     output inserted.Id
-                    values (@TimeOfStart, @Duration, @Price, @Status, @CoachId)";
+                    values (@TimeOfStart, @Duration, @Price, @Status, @ClientId, @CoachId)";
 
                 command.Parameters.Add(new SqlParameter("TimeOfStart", appointment.DateAndTimeOfStart));
                 command.Parameters.Add(new SqlParameter("Duration", appointment.Duration));
                 command.Parameters.Add(new SqlParameter("Price", appointment.Price));
                 command.Parameters.Add(new SqlParameter("Status", appointment.Status));
+                command.Parameters.Add(new SqlParameter("ClientId", (object)appointment.ClientId ?? DBNull.Value));
                 command.Parameters.Add(new SqlParameter("CoachId", (object)appointment.CoachId ?? DBNull.Value));
+
 
                 int id = (int)command.ExecuteScalar();
 
@@ -61,9 +64,11 @@ namespace SSS_FullyStackedTeam.Repository
                         Duration = TimeSpan.Parse((string)row["Duration"]),
                         Price = (double)row["Price"],
                         Status = (bool)row["Status"],
+                        ClientId = (int)row["ClientId"],
                         CoachId = (int)row["CoachId"]
                     };
 
+                    appointment.Client = clientRepository.GetById(appointment.ClientId);
                     appointment.Coach = coachRepository.GetById(appointment.CoachId);
 
                     appointments.Add(appointment);
@@ -95,9 +100,11 @@ namespace SSS_FullyStackedTeam.Repository
                         Duration = TimeSpan.Parse((string)row["Duration"]),
                         Price = (double)row["Price"],
                         Status = (bool)row["Status"],
+                        ClientId = (int)row["ClientId"],
                         CoachId = (int)row["CoachId"]
                     };
 
+                    appointment.Client = clientRepository.GetById(appointment.ClientId);
                     appointment.Coach = coachRepository.GetById(appointment.CoachId);
                     return appointment;
                 }
@@ -111,12 +118,13 @@ namespace SSS_FullyStackedTeam.Repository
             {
                 conn.Open();
                 SqlCommand command = conn.CreateCommand();
-                command.CommandText = @"update Appointments set TimeOfStart = @TimeOfStart, Duration = @Duration, Price = @Price, Status = @Status, CoachId = @CoachId where Id = @Id";
+                command.CommandText = @"update Appointments set TimeOfStart = @TimeOfStart, Duration = @Duration, Price = @Price, Status = @Status, ClientId = @ClientId, CoachId = @CoachId where Id = @Id";
 
                 command.Parameters.Add(new SqlParameter("TimeOfStart", appointment.DateAndTimeOfStart));
                 command.Parameters.Add(new SqlParameter("Duration", appointment.Duration));
                 command.Parameters.Add(new SqlParameter("Price", appointment.Price));
                 command.Parameters.Add(new SqlParameter("Status", appointment.Status));
+                command.Parameters.Add(new SqlParameter("ClientId", (object)appointment.ClientId ?? DBNull.Value));
                 command.Parameters.Add(new SqlParameter("CoachId", (object)appointment.CoachId ?? DBNull.Value));
                 command.Parameters.Add(new SqlParameter("Id", appointment.Id));
 

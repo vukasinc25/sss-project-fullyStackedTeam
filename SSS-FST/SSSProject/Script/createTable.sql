@@ -79,11 +79,17 @@ create table Coaches(
 )
 
 create table Appointments(
-	id int identity(1,1) primary key,
-	TrainerId int,
-	constraint FK_Coaches_Appointments
-	foreign key (TrainerId) references Coaches (id)
-	--TODO
+    id int identity(1,1) primary key,
+    CoachId int,
+    ClientId int,
+    TimeOfStart date,
+    Duration time,
+    Price float,
+    Status bool,
+    constraint FK_Coaches_Appointments
+    foreign key (CoachId) references Coaches (id),
+    constraint FK_Clients_Appointments
+    foreign key (ClientId) references Clients (id)
 )
 
 create table HasIllneses(

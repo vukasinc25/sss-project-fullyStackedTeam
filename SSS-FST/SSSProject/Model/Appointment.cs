@@ -27,6 +27,19 @@ namespace SSS_FullyStackedTeam.Model
             }
         }
 
+        private Client client;
+        public int ClientId { get; set; }
+
+        public Client Client
+        {
+            get => client;
+            set
+            {
+                client = value;
+                CoachId = client.Id;
+            }
+        }
+
         public object Clone()
         {
             return new Appointment
@@ -36,7 +49,8 @@ namespace SSS_FullyStackedTeam.Model
                 Duration = Duration,
                 Price = Price,
                 Status = Status,
-                Coach = Coach.Clone() as Coach
+                Coach = Coach.Clone() as Coach,
+                Client = Client.Clone() as Client
             };
         }
     }
