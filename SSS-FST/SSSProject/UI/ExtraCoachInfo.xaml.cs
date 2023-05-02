@@ -49,7 +49,7 @@ namespace SSSProject.UI
 
         private void BtnCancel_Click(object sender, RoutedEventArgs e)
         {
-            if (coach.Id != 0)
+            if (coach.DiplomaName != "")
             {
                 Window.Content = new PrimaryPage(Window);
             }
