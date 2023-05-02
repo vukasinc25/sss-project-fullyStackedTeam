@@ -122,5 +122,10 @@ namespace SSSProject.UI
                 Window.Content = new ExtraCoachInfo(Window);
             }
         }
+
+        private void DgReservedClasses_AutoGeneratingColumn(object sender, DataGridAutoGeneratingColumnEventArgs e)
+        {
+
+        }
     }
 }

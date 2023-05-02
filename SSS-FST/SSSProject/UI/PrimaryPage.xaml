@@ -300,7 +300,40 @@
 
                 </TabItem>
 
-                <TabItem Header="Appointments"></TabItem>
+                <TabItem Header="Appointments">
+
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition></ColumnDefinition>
+                            <ColumnDefinition></ColumnDefinition>
+                        </Grid.ColumnDefinitions>
+
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="7*"></RowDefinition>
+                            <RowDefinition></RowDefinition>
+                        </Grid.RowDefinitions>
+
+                        <DataGrid Grid.Column="0"
+                                  CanUserAddRows="False"
+                                  IsReadOnly="True"
+                                  SelectionMode="Single"
+                                  Name="DgReservedClasses" 
+                                  AutoGeneratingColumn="DgReservedClasses_AutoGeneratingColumn">
+
+                        </DataGrid>
+
+                        <WrapPanel Grid.Column="0"
+                                   Grid.Row="1">
+
+                            <Button></Button>
+                            <Button></Button>
+                            <Button></Button>
+
+                        </WrapPanel>
+
+                    </Grid>
+                    
+                </TabItem>
                 
             </TabControl>
         </Grid>
