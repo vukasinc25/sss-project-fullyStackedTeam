@@ -14,6 +14,19 @@ namespace SSS_FullyStackedTeam.Model
         public double Price { get; set; }
         public bool Status { get; set; }
 
+        private Coach coach;
+        public int CoachId { get; set; }
+
+        public Coach Coach
+        {
+            get => coach;
+            set
+            {
+                coach = value;
+                CoachId = coach.Id;
+            }
+        }
+
         public object Clone()
         {
             return new Appointment
@@ -22,7 +35,8 @@ namespace SSS_FullyStackedTeam.Model
                 DateAndTimeOfStart = DateAndTimeOfStart,
                 Duration = Duration,
                 Price = Price,
-                Status = Status
+                Status = Status,
+                Coach = Coach.Clone() as Coach
             };
         }
     }
