@@ -29,34 +29,29 @@ namespace SSSProject.UI
 
         private ICoachService coachService = new CoachService();
 
+        public Page PreviousPage { get; set; }
+
         Coach coach;
-        public ExtraCoachInfo(MainWindow window)
+        public ExtraCoachInfo(MainWindow window, Page previousPage)
         {
             InitializeComponent();
             Window = window;
 
             coach = coachService.GetById(Data.Instance.LoggedInCoach.Id);
             DataContext = coach;
+            PreviousPage = previousPage;
         }
 
         private void BtnConfirm_Click(object sender, RoutedEventArgs e)
         {
             coachService.Update(coach.Id, coach);
-            MessageBox.Show("Uspesno izmenjeni podaci kod Trenera");
             Window.Content = new PrimaryPage(Window);
 
         }
 
         private void BtnCancel_Click(object sender, RoutedEventArgs e)
         {
-            if (coach.DiplomaName != "")
-            {
-                Window.Content = new PrimaryPage(Window);
-            }
-            else
-            {
-                Window.Content = new MainPage(Window);
-            }
+            Window.Content = PreviousPage;
         }
     }
 }

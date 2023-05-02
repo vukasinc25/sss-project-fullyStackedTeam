@@ -28,13 +28,15 @@ namespace SSSProject.UI
 
         public Client client = Data.Instance.LoggedInClient;
 
+        private Page PrevousPage { get; set;} 
+
         private IClientService clientService = new ClientService();
 
         private List<Goal> goals;
         private List<Illness> illnesses;
         private List<Prop> props;
 
-        public ExtraClientInfo(MainWindow window)
+        public ExtraClientInfo(MainWindow window, Page prevousPage)
         {
             InitializeComponent();
             Window = window;
@@ -46,6 +48,7 @@ namespace SSSProject.UI
             LbxProps.ItemsSource = props;
 
             DataContext = client;
+            PrevousPage = prevousPage;
         }
 
         private void BtnConfirm_Click(object sender, RoutedEventArgs e)
@@ -72,14 +75,7 @@ namespace SSSProject.UI
 
         private void BtnCancel_Click(object sender, RoutedEventArgs e)
         {
-            if (client.Id != 0)
-            {
-                Window.Content = new PrimaryPage(Window);
-            }
-            else
-            {
-                Window.Content = new MainPage(Window);
-            }
+                Window.Content = PrevousPage;
         }
     }
 }

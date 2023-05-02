@@ -81,7 +81,7 @@ namespace SSS_FullyStackedTeam.UI
 
                     if (Data.Instance.LoggedInCoach.DiplomaName == "")
                     {
-                        Window.Content = new ExtraCoachInfo(Window);
+                        Window.Content = new ExtraCoachInfo(Window, this);
                     }
                     else
                     {
@@ -92,7 +92,7 @@ namespace SSS_FullyStackedTeam.UI
                 {
                     if(Data.Instance.LoggedInClient.Weight == 0)
                     {
-                        Window.Content = new ExtraClientInfo(Window);
+                        Window.Content = new ExtraClientInfo(Window, this);
                     }
                     else
                     {

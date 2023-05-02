@@ -115,11 +115,11 @@ namespace SSSProject.UI
         {
             if(Client.Id != 0)
             {
-                Window.Content = new ExtraClientInfo(Window);
+                Window.Content = new ExtraClientInfo(Window, this);
             }
             else
             {
-                Window.Content = new ExtraCoachInfo(Window);
+                Window.Content = new ExtraCoachInfo(Window, this);
             }
         }
     }
