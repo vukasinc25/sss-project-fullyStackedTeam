@@ -79,8 +79,6 @@ namespace SSS_FullyStackedTeam.Repository
 
         public Appointment GetById(int id)
         {
-            List<Appointment> appointments = new List<Appointment>();
-
             using (SqlConnection conn = new SqlConnection(Config.CONNECTION_STRING))
             {
                 string commandText = $"select * from Appointments where Id = {id}";

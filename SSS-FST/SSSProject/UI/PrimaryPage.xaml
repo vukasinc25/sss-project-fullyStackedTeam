@@ -37,20 +37,21 @@
         </WrapPanel>
 
         <Grid>
-            
+
             <TabControl>
 
                 <TabItem Header="Profile">
 
                     <ScrollViewer>
-                        
+
                         <Grid>
 
                             <Grid.ColumnDefinitions>
-                                <ColumnDefinition></ColumnDefinition>
-                                <ColumnDefinition></ColumnDefinition>
-                                <ColumnDefinition></ColumnDefinition>
-                                <ColumnDefinition></ColumnDefinition>
+                                <ColumnDefinition Width="70*"></ColumnDefinition>
+                                <ColumnDefinition Width="149*"/>
+                                <ColumnDefinition Width="219*"></ColumnDefinition>
+                                <ColumnDefinition Width="219*"></ColumnDefinition>
+                                <ColumnDefinition Width="219*"></ColumnDefinition>
                             </Grid.ColumnDefinitions>
 
                             <Grid.RowDefinitions>
@@ -67,179 +68,179 @@
                                 <RowDefinition></RowDefinition>
                             </Grid.RowDefinitions>
 
-                            <Label Grid.Column="0" 
+                            <Label Grid.Column="1" 
                                    Grid.Row="0" 
                                    Content="First name:"
-                                   Style="{StaticResource ResourceKey=ProfileLabel}"></Label>
+                                   Style="{StaticResource ResourceKey=ProfileLabel}" HorizontalAlignment="Left" Margin="82,12,0,12"></Label>
 
                             <Label Grid.Column="1" 
                                    Grid.Row="0" 
-                                   Content="{Binding Path=User.FirstName}"></Label>
+                                   Content="{Binding Path=User.FirstName}" Grid.ColumnSpan="2" Margin="149,12,0,12"></Label>
 
-                            <Label Grid.Column="0" 
+                            <Label Grid.Column="1" 
                                    Grid.Row="1" 
                                    Content="Last name:"
-                                   Style="{StaticResource ResourceKey=ProfileLabel}"></Label>
+                                   Style="{StaticResource ResourceKey=ProfileLabel}" HorizontalAlignment="Left" Margin="83,12,0,12"></Label>
 
                             <Label Grid.Column="1" 
                                    Grid.Row="1" 
-                                   Content="{Binding Path=User.LastName}"></Label>
+                                   Content="{Binding Path=User.LastName}" Grid.ColumnSpan="2" Margin="149,12,0,12"></Label>
 
-                            <Label Grid.Column="0" 
+                            <Label Grid.Column="1" 
                                    Grid.Row="2" 
                                    Content="Email:"
-                                   Style="{StaticResource ResourceKey=ProfileLabel}"></Label>
+                                   Style="{StaticResource ResourceKey=ProfileLabel}" HorizontalAlignment="Left" Margin="108,12,0,13"></Label>
 
                             <Label Grid.Column="1" 
                                    Grid.Row="2" 
-                                   Content="{Binding Path=User.Email}"></Label>
-
-                            <Label Grid.Column="0" 
-                                   Grid.Row="3" 
-                                   Content="Telephone:"
-                                   Style="{StaticResource ResourceKey=ProfileLabel}"></Label>
+                                   Content="{Binding Path=User.Email}" Grid.ColumnSpan="2" Margin="149,12,0,13"></Label>
 
                             <Label Grid.Column="1" 
                                    Grid.Row="3" 
-                                   Content="{Binding Path=User.Tel}"></Label>
+                                   Content="Telephone:"
+                                   Style="{StaticResource ResourceKey=ProfileLabel}" HorizontalAlignment="Left" Margin="82,12,0,12"></Label>
 
-                            <Label Grid.Column="0" 
+                            <Label Grid.Column="1" 
+                                   Grid.Row="3" 
+                                   Content="{Binding Path=User.Tel}" Grid.ColumnSpan="2" Margin="149,12,0,12"></Label>
+
+                            <Label Grid.Column="1" 
                                    Grid.Row="4" 
                                    Content="Street:"
-                                   Style="{StaticResource ResourceKey=ProfileLabel}"></Label>
+                                   Style="{StaticResource ResourceKey=ProfileLabel}" HorizontalAlignment="Left" Margin="106,12,0,12"></Label>
 
                             <Label Grid.Column="1"
                                    Grid.Row="4"
                                    Name="LblStreet"
-                                   Content="{Binding Path=User.Street}"></Label>
+                                   Content="{Binding Path=User.Street}" Grid.ColumnSpan="2" Margin="149,12,0,12"></Label>
 
-                            <Label Grid.Column="0"
+                            <Label Grid.Column="1"
                                    Grid.Row="5"
                                    Content="City:"
-                                   Style="{StaticResource ResourceKey=ProfileLabel}"></Label>
+                                   Style="{StaticResource ResourceKey=ProfileLabel}" HorizontalAlignment="Left" Margin="116,12,0,12"></Label>
 
                             <Label Grid.Column="1" 
                                    Grid.Row="5"
                                    Name="LblCity"
-                                   Content="{Binding Path=User.City}"></Label>
+                                   Content="{Binding Path=User.City}" Grid.ColumnSpan="2" Margin="149,12,0,12"></Label>
 
-                            <Label Grid.Column="0" 
+                            <Label Grid.Column="1" 
                                    Grid.Row="6" 
                                    Content="Country:"
-                                   Style="{StaticResource ResourceKey=ProfileLabel}"></Label>
+                                   Style="{StaticResource ResourceKey=ProfileLabel}" HorizontalAlignment="Left" Margin="95,12,0,12"></Label>
 
                             <Label Grid.Column="1" 
                                    Grid.Row="6"
                                    Name="LblCountry"
-                                   Content="{Binding Path=User.Country}"></Label>
+                                   Content="{Binding Path=User.Country}" Grid.ColumnSpan="2" Margin="149,12,0,12"></Label>
 
-                            <Label Grid.Column="0" 
+                            <Label Grid.Column="1" 
                                    Grid.Row="7"
                                    Content="Credit card:"
-                                   Style="{StaticResource ResourceKey=ProfileLabel}"></Label>
+                                   Style="{StaticResource ResourceKey=ProfileLabel}" HorizontalAlignment="Left" Margin="79,12,0,12"></Label>
 
                             <Label Grid.Column="1" 
                                    Grid.Row="7"
                                    Name="LblCreditCard"
-                                   Content="{Binding Path=User.CreditCard}"></Label>
+                                   Content="{Binding Path=User.CreditCard}" Grid.ColumnSpan="2" Margin="149,12,0,12"></Label>
 
-                            <Label Grid.Column="0" 
+                            <Label Grid.Column="1" 
                                    Grid.Row="8" 
                                    Content="Primary language:"
-                                   Style="{StaticResource ResourceKey=ProfileLabel}"></Label>
+                                   Style="{StaticResource ResourceKey=ProfileLabel}" HorizontalAlignment="Left" Margin="44,12,0,13"></Label>
 
                             <Label Grid.Column="1"
                                    Grid.Row="8"
-                                   Content="{Binding Path=User.PrimaryLanguage}"></Label>
+                                   Content="{Binding Path=User.PrimaryLanguage}" Grid.ColumnSpan="2" Margin="149,12,0,13"></Label>
 
-                            <Label Grid.Column="0" 
+                            <Label Grid.Column="1" 
                                    Grid.Row="9" 
                                    Content="Secondary Languages:"
-                                   Style="{StaticResource ResourceKey=ProfileLabel}"></Label>
+                                   Style="{StaticResource ResourceKey=ProfileLabel}" HorizontalAlignment="Left" Margin="21,29,0,30"></Label>
 
                             <ListBox Name="LbxSecondaryLanguages"
                                      Grid.Column="1"
                                      Grid.Row="9"
                                      IsEnabled="False"
-                                     ItemsSource="{Binding Path=User.SecondaryLanguages}"></ListBox>
+                                     ItemsSource="{Binding Path=User.SecondaryLanguages}" Grid.ColumnSpan="3" Margin="149,0,219,50" Grid.RowSpan="2"></ListBox>
 
-                            <Label Grid.Column="2"
+                            <Label Grid.Column="3"
                                    Grid.Row="0"
                                    Content="Height:"
                                    Name="lblHight"
-                                   Style="{StaticResource ResourceKey=ProfileLabel}"></Label>
-                            
-                            <Label Grid.Column="3"
+                                   Style="{StaticResource ResourceKey=ProfileLabel}" Grid.ColumnSpan="2" HorizontalAlignment="Left" Margin="171,12,0,12"></Label>
+
+                            <Label Grid.Column="4"
                                    Grid.Row="0"
                                    Name="lblHight1"
-                                   Content="{Binding Path=Height}"></Label>
+                                   Content="{Binding Path=Height}" Margin="0,12,0,12"></Label>
 
-                            <Label Grid.Column="2"
+                            <Label Grid.Column="3"
                                    Grid.Row="0"
                                    Content="Diploma:"
                                    Name="lblDiploma"
-                                   Style="{StaticResource ResourceKey=ProfileLabel}"></Label>
+                                   Style="{StaticResource ResourceKey=ProfileLabel}" Grid.ColumnSpan="2" HorizontalAlignment="Left" Margin="162,12,0,12"></Label>
 
                             <Label Grid.Row="0"
-                                   Grid.Column="3"
+                                   Grid.Column="4"
                                    Name="lblDiploma1"
-                                   Content="{Binding Path=DiplomaName}"
+                                   Content="{Binding Path=DiplomaName}" Margin="0,12,0,12"
                                    />
-
-                            <Label Grid.Column="2"
-                                   Grid.Row="1"
-                                   Content="Weight:"
-                                   Name="lblWeight"
-                                   Style="{StaticResource ResourceKey=ProfileLabel}"></Label>
 
                             <Label Grid.Column="3"
                                    Grid.Row="1"
-                                   Name="lblWeight1"
-                                   Content="{Binding Path=Weight}"></Label>
+                                   Content="Weight:"
+                                   Name="lblWeight"
+                                   Style="{StaticResource ResourceKey=ProfileLabel}" Grid.ColumnSpan="2" HorizontalAlignment="Left" Margin="168,12,0,12"></Label>
 
-                            <Label Grid.Row="1"
-                                   Grid.Column="2"
-                                   Content="Sertificat:"
-                                   Name="lblSertificat"
-                                   Style="{StaticResource ResourceKey=ProfileLabel}"/>
+                            <Label Grid.Column="4"
+                                   Grid.Row="1"
+                                   Name="lblWeight1"
+                                   Content="{Binding Path=Weight}" Margin="0,12,0,12"></Label>
 
                             <Label Grid.Row="1"
                                    Grid.Column="3"
-                                   Name="lblSertificat1"
-                                   Content="{Binding Path=SertificateName}"/>
+                                   Content="Sertificat:"
+                                   Name="lblSertificat"
+                                   Style="{StaticResource ResourceKey=ProfileLabel}" Grid.ColumnSpan="2" HorizontalAlignment="Left" Margin="160,12,0,12"/>
 
-                            <Label Grid.Column="2"
+                            <Label Grid.Row="1"
+                                   Grid.Column="4"
+                                   Name="lblSertificat1"
+                                   Content="{Binding Path=SertificateName}" Margin="0,12,0,12"/>
+
+                            <Label Grid.Column="3"
                                    Grid.Row="2"
                                    Content="Goals:"
                                    Name="lblGoals"
-                                   Style="{StaticResource ResourceKey=ProfileLabel}"></Label>
+                                   Style="{StaticResource ResourceKey=ProfileLabel}" Grid.ColumnSpan="2" HorizontalAlignment="Left" Margin="177,12,0,13"></Label>
 
                             <ListBox Name="LbxGoals"
-                                     Grid.Column="3"
-                                     Grid.Row="2"
+                                     Grid.Column="4"
+                                     Grid.Row="1"
                                      IsEnabled="False"
-                                     Grid.RowSpan="2"
-                                     ItemsSource="{Binding Path=Goals}"></ListBox>
-
-                            <Label Grid.Row="2"
-                                   Grid.Column="2"
-                                   Content="Title:"
-                                   Name="lblTitle"
-                                   Style="{StaticResource ResourceKey=ProfileLabel}"/>
+                                     Grid.RowSpan="4"
+                                     ItemsSource="{Binding Path=Goals}" Margin="0,50,0,50"></ListBox>
 
                             <Label Grid.Row="2"
                                    Grid.Column="3"
+                                   Content="Title:"
+                                   Name="lblTitle"
+                                   Style="{StaticResource ResourceKey=ProfileLabel}" Grid.ColumnSpan="2" HorizontalAlignment="Left" Margin="184,12,0,13"/>
+
+                            <Label Grid.Row="2"
+                                   Grid.Column="4"
                                    Name="lblTitle1"
-                                   Content="{Binding Path=Title}"/>
-                            
-                            <Label Grid.Column="2"
+                                   Content="{Binding Path=Title}" Margin="0,12,0,13"/>
+
+                            <Label Grid.Column="3"
                                    Grid.Row="4"
                                    Content="Illnesses:"
                                    Name="lblIllnesses"
-                                   Style="{StaticResource ResourceKey=ProfileLabel}"></Label>
+                                   Style="{StaticResource ResourceKey=ProfileLabel}" Grid.ColumnSpan="2" HorizontalAlignment="Left" Margin="163,12,0,12"></Label>
 
                             <ListBox Name="LbxIllnesses"
-                                     Grid.Column="3"
+                                     Grid.Column="4"
                                      Grid.Row="4"
                                      IsEnabled="False"
                                      Grid.RowSpan="2"
@@ -247,53 +248,53 @@
                                      ItemsSource="{Binding Path=Illnesses}"></ListBox>
 
                             <Label Grid.Row="3"
-                                   Grid.Column="2"
+                                   Grid.Column="3"
                                    Content="Profit:"
                                    Name="lblProfit"
-                                   Style="{StaticResource ResourceKey=ProfileLabel}"/>
+                                   Style="{StaticResource ResourceKey=ProfileLabel}" Grid.ColumnSpan="2" HorizontalAlignment="Left" Margin="178,12,0,12"/>
 
                             <Label Grid.Row="3"
-                                   Grid.Column="3"
+                                   Grid.Column="4"
                                    Name="lblProfit1"
-                                   Content="{Binding Path=Profit}"/>
+                                   Content="{Binding Path=Profit}" Margin="0,12,0,12"/>
 
-                            <Label Grid.Column="2"
+                            <Label Grid.Column="3"
                                    Grid.Row="6"
                                    Content="Props:"
                                    Name="lblProps"
-                                   Style="{StaticResource ResourceKey=ProfileLabel}"></Label>
+                                   Style="{StaticResource ResourceKey=ProfileLabel}" Grid.ColumnSpan="2" HorizontalAlignment="Left" Margin="176,12,0,12"></Label>
 
                             <ListBox Name="LbxProps"
-                                     Grid.Column="3"
-                                     Grid.Row="6"
+                                     Grid.Column="4"
+                                     Grid.Row="5"
                                      IsEnabled="False"
-                                     Grid.RowSpan="2"
-                                     ItemsSource="{Binding Path=Props}"></ListBox>
-
-                            <Label Grid.Row="4"
-                                   Grid.Column="2"
-                                   Content="Successful Apointments:"
-                                   Name="lblSuccessfulApointments"
-                                   Style="{StaticResource ResourceKey=ProfileLabel}"/>
+                                     Grid.RowSpan="3"
+                                     ItemsSource="{Binding Path=Props}" Margin="0,50,0,0"></ListBox>
 
                             <Label Grid.Row="4"
                                    Grid.Column="3"
+                                   Content="Successful Apointments:"
+                                   Name="lblSuccessfulApointments"
+                                   Style="{StaticResource ResourceKey=ProfileLabel}" Grid.ColumnSpan="2" HorizontalAlignment="Left" Margin="81,12,0,12"/>
+
+                            <Label Grid.Row="4"
+                                   Grid.Column="4"
                                    Name="lblSuccessfulApointments1"
-                                   Content="{Binding Path=NumberSuccessfulAppointments}"/>
-                            
+                                   Content="{Binding Path=NumberSuccessfulAppointments}" Margin="0,12,0,12"/>
+
                             <Button Grid.Column="1"
                                     Grid.Row="10"
                                     Name="BtnEditUser"
                                     Content="Edit"
                                     HorizontalAlignment="Left"
-                                    Click="BtnEditUser_Click"></Button>
+                                    Click="BtnEditUser_Click" Grid.ColumnSpan="2" Margin="149,17,0,8"></Button>
 
-                            <Button Grid.Column="3"
+                            <Button Grid.Column="4"
                                     Grid.Row="10"
                                     Name="BtnEditExtraInfo"
                                     Content="Edit"
                                     HorizontalAlignment="Left" 
-                                    Click="BtnEditExtraInfo_Click"></Button>
+                                    Click="BtnEditExtraInfo_Click" Margin="0,17,0,8"></Button>
 
                         </Grid>
                     </ScrollViewer>
@@ -345,9 +346,9 @@
                                  Name="LbxComments"></ListBox>
 
                     </Grid>
-                    
+
                 </TabItem>
-                
+
             </TabControl>
         </Grid>
 

@@ -32,6 +32,17 @@ create table Props(
 	Name varchar(30)
 )
 
+create table Coments(
+	Id int identity(1,1) primary key,
+	Coment varcha (255),
+	CoachId int,
+    ClientId int,
+	constraint FK_Coaches_Coments
+    foreign key (CoachId) references Coaches (id),
+    constraint FK_Clients_Coments
+    foreign key (ClientId) references Clients (id)
+)
+
 create table Users(
 	id int identity(1,1) primary key,
 	FirstName varchar(50),
