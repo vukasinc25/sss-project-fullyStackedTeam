@@ -67,6 +67,17 @@ namespace SSSProject.UI
                 lblSuccessfulApointments.Visibility = Visibility.Collapsed;
                 lblSuccessfulApointments1.Visibility = Visibility.Collapsed;
                 BtnAddAppointment.Visibility = Visibility.Collapsed;
+                //lblHeightA.Visibility = Visibility.Visible;
+                //lblHeightAA.Visibility = Visibility.Visible;
+                //lblWeightA.Visibility = Visibility.Visible;
+                //lblWeightAA.Visibility = Visibility.Visible;
+                lblTitleA.Visibility = Visibility.Collapsed;
+                lblTitleAA.Visibility = Visibility.Collapsed;
+                lblDiplomaA.Visibility = Visibility.Collapsed;
+                lblDiplomaAA.Visibility = Visibility.Collapsed;
+                lblSertificatA.Visibility = Visibility.Collapsed;
+                lblSertificatAA.Visibility = Visibility.Collapsed;
+                
                 DataContext = Client;
             }
             else
@@ -93,6 +104,16 @@ namespace SSSProject.UI
                 LbxProps.Visibility = Visibility.Collapsed;
                 BtnBookAppointment.Visibility = Visibility.Collapsed;
                 BtnCancelAppointment.Visibility = Visibility.Collapsed;
+                lblHeightA.Visibility = Visibility.Collapsed;
+                lblHeightAA.Visibility = Visibility.Collapsed;
+                lblWeightA.Visibility = Visibility.Collapsed;
+                lblWeightAA.Visibility = Visibility.Collapsed;
+                lblGoalsA.Visibility = Visibility.Collapsed;
+                lblGoalsAA.Visibility = Visibility.Collapsed;
+                lblIllnesesA.Visibility = Visibility.Collapsed;
+                lblIllnesesAA.Visibility = Visibility.Collapsed;    
+                lblPropsA.Visibility = Visibility.Collapsed;
+                lblPropsAA.Visibility = Visibility.Collapsed;    
                 DataContext = Coach;
             }
         }

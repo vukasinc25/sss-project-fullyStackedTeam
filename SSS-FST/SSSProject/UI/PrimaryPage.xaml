@@ -315,6 +315,154 @@
                             <RowDefinition Height="0.2*"></RowDefinition>
                         </Grid.RowDefinitions>
 
+                        <Grid Grid.Row="0" Grid.Column="1">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="auto"></ColumnDefinition>
+                                <ColumnDefinition Width="auto"></ColumnDefinition>
+                                <ColumnDefinition Width="auto"></ColumnDefinition>
+                                <ColumnDefinition Width="auto"></ColumnDefinition>
+                            </Grid.ColumnDefinitions>
+
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="40"></RowDefinition>
+                                <RowDefinition Height="40"></RowDefinition>
+                                <RowDefinition Height="40"></RowDefinition>
+                                <RowDefinition Height="40"></RowDefinition>
+                                <RowDefinition Height="40"></RowDefinition>
+                                <RowDefinition Height="40"></RowDefinition>
+                                <RowDefinition Height="40"></RowDefinition>
+                            </Grid.RowDefinitions>
+
+                            <Label 
+                                Grid.Row="0"
+                                Grid.Column="0"
+                                Content="First Name: "
+                                Name="lblFirstNameA"
+                                HorizontalAlignment="Right"></Label>
+
+                            <Label
+                                Grid.Row="0" 
+                                Grid.Column="1"
+                                Name="lblFirstNameAA"
+                                Content="{Binding Path=User.FirstName}"></Label>
+
+                            <Label 
+                                Grid.Row="1"
+                                Grid.Column="0"
+                                Content="Last Name: "
+                                Name="lblLastNameA"
+                                HorizontalAlignment="Right"></Label>
+
+                            <Label
+                                Grid.Row="1" 
+                                Grid.Column="1"
+                                Name="lblLastNameAA"
+                                Content="{Binding Path=User.LastName}"></Label>
+
+                            <Label 
+                                Grid.Row="2"
+                                Grid.Column="0"
+                                Content="Height: "
+                                Name="lblHeightA"
+                                HorizontalAlignment="Right"></Label>
+
+                            <Label
+                                Grid.Row="2" 
+                                Grid.Column="1"
+                                Name="lblHeightAA"
+                                Content="{Binding Path=Height}"></Label>
+
+                            <Label 
+                                Grid.Row="2"
+                                Grid.Column="0"
+                                Content="Diploma: "
+                                Name="lblDiplomaA"
+                                HorizontalAlignment="Right"></Label>
+
+                            <Label
+                                Grid.Row="2" 
+                                Grid.Column="1"
+                                Name="lblDiplomaAA"
+                                Content="{Binding Path=DiplomaName}"></Label>
+
+                            <Label 
+                                Grid.Row="3"
+                                Grid.Column="0"
+                                Content="Weight: "
+                                Name="lblWeightA"
+                                HorizontalAlignment="Right"></Label>
+
+                            <Label
+                                Grid.Row="3" 
+                                Grid.Column="1"
+                                Name="lblWeightAA"
+                                Content="{Binding Path=Weight}"></Label>
+
+                            <Label 
+                                Grid.Row="3"
+                                Grid.Column="0"
+                                Content="Sertificat: "
+                                Name="lblSertificatA"
+                                HorizontalAlignment="Right"></Label>
+
+                            <Label
+                                Grid.Row="3" 
+                                Grid.Column="1"
+                                Name="lblSertificatAA"
+                                Content="{Binding Path=SertificateName}"></Label>
+
+                            <Label 
+                                Grid.Row="4"
+                                Grid.Column="0"
+                                Content="Title: "
+                                Name="lblTitleA"
+                                HorizontalAlignment="Right"></Label>
+
+                            <Label
+                                Grid.Row="4" 
+                                Grid.Column="1"
+                                Name="lblTitleAA"
+                                Content="{Binding Path=Title}"></Label>
+                            
+                            <Label 
+                                Grid.Row="0"
+                                Grid.Column="2"
+                                Content="Goals: "
+                                Name="lblGoalsA"
+                                HorizontalAlignment="Right"></Label>
+
+                            <ListBox
+                                Grid.Row="0" 
+                                Grid.Column="3"
+                                Name="lblGoalsAA"
+                                ItemsSource="{Binding Path=Goals}"></ListBox>
+                            
+                            <Label 
+                                Grid.Row="1"
+                                Grid.Column="2"
+                                Content="Illnesses: "
+                                Name="lblIllnesesA"
+                                HorizontalAlignment="Right"></Label>
+
+                            <ListBox
+                                Grid.Row="1" 
+                                Grid.Column="3"
+                                Name="lblIllnesesAA"
+                                ItemsSource="{Binding Path=Illnesses}"></ListBox>
+
+                            <Label 
+                                Grid.Row="2"
+                                Grid.Column="2"
+                                Content="Props: "
+                                Name="lblPropsA"
+                                HorizontalAlignment="Right"></Label>
+
+                            <ListBox
+                                Grid.Row="2" 
+                                Grid.Column="3"
+                                Name="lblPropsAA"
+                                ItemsSource="{Binding Path=Props}"></ListBox>
+                        </Grid>
                         <DataGrid Grid.Column="0"
                                   Grid.RowSpan="2"
                                   CanUserAddRows="False"

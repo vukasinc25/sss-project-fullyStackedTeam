@@ -145,3 +145,4 @@ create table HasLanguages(
 
 select * from Users
 select * from Coaches
+select * from Clients
