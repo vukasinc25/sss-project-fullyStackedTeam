@@ -19,6 +19,7 @@ namespace SSS_FullyStackedTeam.Model
         public string City { get; set; }
         public string Country { get; set; }
         public string CreditCard { get; set; }
+        public string isAdmin { get; set; }
 
         private Language primaryLanguage;
         public int? PrimaryLanguageId { get; set; }
@@ -65,7 +66,8 @@ namespace SSS_FullyStackedTeam.Model
                 CreditCard = CreditCard,
                 TimeZone = TimeZone,
                 PrimaryLanguage = PrimaryLanguage,
-                SecondaryLanguages = newList
+                SecondaryLanguages = newList,
+                isAdmin = isAdmin
             };
         }
     }

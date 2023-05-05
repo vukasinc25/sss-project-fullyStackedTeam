@@ -16,6 +16,7 @@ insert into Props (Name) values ('5kg weights')
 insert into Props (Name) values ('Treadmill')
 insert into Props (Name) values ('Exercise bike')
 
+
 delete from Props
 select * from Goals
 select * from HasGoals
