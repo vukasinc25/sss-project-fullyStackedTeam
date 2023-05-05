@@ -32,17 +32,6 @@ create table Props(
 	Name varchar(30)
 )
 
-create table Coments(
-	Id int identity(1,1) primary key,
-	Coment varcha (255),
-	CoachId int,
-    ClientId int,
-	constraint FK_Coaches_Coments
-    foreign key (CoachId) references Coaches (id),
-    constraint FK_Clients_Coments
-    foreign key (ClientId) references Clients (id)
-)
-
 create table Users(
 	id int identity(1,1) primary key,
 	FirstName varchar(50),
@@ -57,15 +46,6 @@ create table Users(
 	PrimaryLanguageId int,
 	constraint FK_Languages_Users
 	foreign key (PrimaryLanguageId) references Languages (id)
-)
-
-create table Comments(
-	id int identity(1,1) primary key,
-	Contents varchar(200),
-	Rating float,
-	UserId int,
-	constraint FK_Users_Comments
-	foreign key (UserId) references Users (id)
 )
 
 create table Clients(
@@ -84,6 +64,7 @@ create table Coaches(
 	Title varchar(40),
 	NumberSuccessfulAppointments int,
 	Profit float,
+	IsSent bit,
 	UserId int,
 	constraint FK_Users_Coaches
 	foreign key (UserId) references Users (id)
@@ -96,7 +77,7 @@ create table Appointments(
     TimeOfStart date,
     Duration time,
     Price float,
-    Status bool,
+    Status bit,
     constraint FK_Coaches_Appointments
     foreign key (CoachId) references Coaches (id),
     constraint FK_Clients_Appointments
@@ -143,6 +124,16 @@ create table HasLanguages(
 	foreign key (LangId) references Languages (id)
 )
 
-select * from Users
-select * from Coaches
-select * from Clients
+create table Coments(
+	Id int identity(1,1) primary key,
+	Coment varchar (255),
+	Rating float,
+	CoachId int,
+    ClientId int,
+	constraint FK_Coaches_Coments
+    foreign key (CoachId) references Coaches (id),
+    constraint FK_Clients_Coments
+    foreign key (ClientId) references Clients (id)
+)
+
+select * from Coments

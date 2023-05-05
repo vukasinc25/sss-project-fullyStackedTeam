@@ -20,12 +20,13 @@ namespace SSSProject.Repository
             {
                 conn.Open();
                 SqlCommand command = conn.CreateCommand();
-                command.CommandText = @"insert into Coments (Coment, CoachId, ClientId) 
+                command.CommandText = @"insert into Coments (Coment, Rating, CoachId, ClientId) 
                     output inserted.Id
-                    values (@Coment, @CoachId, @ClientId)";
+                    values (@Coment, @Rating, @CoachId, @ClientId)";
 
                 command.Parameters.Add(new SqlParameter("Coment", coments.Coment));
-                command.Parameters.Add(new SqlParameter("CoachId", (object)coments.ClientId ?? DBNull.Value));
+                command.Parameters.Add(new SqlParameter("Rating", coments.Rating));
+                command.Parameters.Add(new SqlParameter("CoachId", (object)coments.CoachId ?? DBNull.Value));
                 command.Parameters.Add(new SqlParameter("ClientId", (object)coments.ClientId ?? DBNull.Value));
 
                 int id = (int)command.ExecuteScalar();
@@ -57,6 +58,7 @@ namespace SSSProject.Repository
                     {
                         Id = (int)row["Id"],
                         Coment = (string)row["Coment"],
+                        Rating = (double)row["Rating"],
                         ClientId = (int)row["ClientId"],
                         CoachId = (int)row["CoachId"]
                     };
@@ -88,6 +90,7 @@ namespace SSSProject.Repository
                     {
                         Id = (int)row["Id"],
                         Coment = (string)row["Coment"],
+                        Rating = (double)row["Rating"],
                         ClientId = (int)row["ClientId"],
                         CoachId = (int)row["CoachId"]
                     };
@@ -106,9 +109,10 @@ namespace SSSProject.Repository
             {
                 conn.Open();
                 SqlCommand command = conn.CreateCommand();
-                command.CommandText = @"update Coments set Coment = @Coment, CoachId = CoachId, ClientId = @ClientId where Id = @Id)";
+                command.CommandText = @"update Coments set Coment = @Coment, Rating = @Rating, CoachId = CoachId, ClientId = @ClientId where Id = @Id)";
 
                 command.Parameters.Add(new SqlParameter("Coment", coments.Coment));
+                command.Parameters.Add(new SqlParameter("Rating", coments.Rating));
                 command.Parameters.Add(new SqlParameter("CoachId", (object)coments.ClientId ?? DBNull.Value));
                 command.Parameters.Add(new SqlParameter("ClientId", (object)coments.ClientId ?? DBNull.Value));
                 command.Parameters.Add(new SqlParameter("Id", id));

@@ -2,6 +2,7 @@
 using SSS_FullyStackedTeam.Service;
 using SSS_FullyStackedTeam.UI;
 using SSSProject.Model;
+using SSSProject.Repository;
 using SSSProject.Service;
 using System;
 using System.Collections.Generic;
@@ -27,9 +28,10 @@ namespace SSSProject.UI
     {
         public MainWindow Window { get; set; }
 
+
         private IClientService clientService = new ClientService();
         private ICoachService coachService = new CoachService();
-
+        private IComentRepository comentRepository = new ComentsRepository();
         private Client Client;
 
         private Coach Coach;
@@ -46,16 +48,16 @@ namespace SSSProject.UI
 
             if (Coach.SertificateName == null)
             {
-                lblHight.Visibility = Visibility.Visible;
-                lblHight1.Visibility = Visibility.Visible;
-                lblWeight.Visibility = Visibility.Visible;
-                lblWeight1.Visibility = Visibility.Visible;
-                lblGoals.Visibility = Visibility.Visible;
-                LbxGoals.Visibility = Visibility.Visible;
-                lblIllnesses.Visibility = Visibility.Visible;
-                LbxIllnesses.Visibility = Visibility.Visible;
-                lblProps.Visibility = Visibility.Visible;
-                LbxProps.Visibility = Visibility.Visible;
+                //lblHight.Visibility = Visibility.Visible;
+                //lblHight1.Visibility = Visibility.Visible;
+                //lblWeight.Visibility = Visibility.Visible;
+                //lblWeight1.Visibility = Visibility.Visible;
+                //lblGoals.Visibility = Visibility.Visible;
+                //LbxGoals.Visibility = Visibility.Visible;
+                //lblIllnesses.Visibility = Visibility.Visible;
+                //LbxIllnesses.Visibility = Visibility.Visible;
+                //lblProps.Visibility = Visibility.Visible;
+                //LbxProps.Visibility = Visibility.Visible;
                 lblDiploma.Visibility = Visibility.Collapsed;
                 lblDiploma1.Visibility = Visibility.Collapsed;
                 lblSertificat.Visibility = Visibility.Collapsed;
@@ -82,16 +84,16 @@ namespace SSSProject.UI
             }
             else
             {
-                lblDiploma.Visibility = Visibility.Visible;
-                lblDiploma1.Visibility = Visibility.Visible;
-                lblSertificat.Visibility = Visibility.Visible;
-                lblSertificat1.Visibility = Visibility.Visible;
-                lblTitle.Visibility = Visibility.Visible;
-                lblTitle1.Visibility = Visibility.Visible;
-                lblProfit.Visibility = Visibility.Visible;
-                lblProfit1.Visibility = Visibility.Visible;
-                lblSuccessfulApointments.Visibility = Visibility.Visible;
-                lblSuccessfulApointments1.Visibility = Visibility.Visible;
+                //lblDiploma.Visibility = Visibility.Visible;
+                //lblDiploma1.Visibility = Visibility.Visible;
+                //lblSertificat.Visibility = Visibility.Visible;
+                //lblSertificat1.Visibility = Visibility.Visible;
+                //lblTitle.Visibility = Visibility.Visible;
+                //lblTitle1.Visibility = Visibility.Visible;
+                //lblProfit.Visibility = Visibility.Visible;
+                //lblProfit1.Visibility = Visibility.Visible;
+                //lblSuccessfulApointments.Visibility = Visibility.Visible;
+                //lblSuccessfulApointments1.Visibility = Visibility.Visible;
                 lblHight.Visibility = Visibility.Collapsed;
                 lblHight1.Visibility = Visibility.Collapsed;
                 lblWeight.Visibility = Visibility.Collapsed;
@@ -115,6 +117,11 @@ namespace SSSProject.UI
                 lblPropsA.Visibility = Visibility.Collapsed;
                 lblPropsAA.Visibility = Visibility.Collapsed;    
                 DataContext = Coach;
+            }
+
+            if(AppointentsTabItem != null)
+            {
+                LbxComments.ItemsSource = comentRepository.GetAll().Where(p => p.Coach.Id == Coach.Id).ToList();
             }
         }
 
@@ -157,6 +164,16 @@ namespace SSSProject.UI
             {
                 e.Column.Visibility = Visibility.Collapsed;
             }
+        }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            Window.Content = new ComentPage(Window, 1);
+        }
+
+        private void TabItem_MouseDoubleClick(object sender, MouseButtonEventArgs e)
+        {
+            LbxComments.ItemsSource = comentRepository.GetAll().Where(p => p.Coach.Id == Coach.Id).ToList();
         }
     }
 }

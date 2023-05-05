@@ -11,6 +11,7 @@ namespace SSSProject.Model
     {
         public int Id { get; set; }
         public string Coment { get; set; }
+        public double Rating { get; set; }
         private Coach coach;
         public int CoachId { get; set; }
         public Coach Coach
@@ -40,9 +41,15 @@ namespace SSSProject.Model
             {
                 Id = Id,
                 Coment = Coment,
+                Rating = Rating,
                 Coach = Coach.Clone() as Coach,
                 Client = Client.Clone() as Client
             };
+        }
+
+        public override string ToString()
+        {
+            return Coment + "    "+"Rating: " + Rating;
         }
     }
 }

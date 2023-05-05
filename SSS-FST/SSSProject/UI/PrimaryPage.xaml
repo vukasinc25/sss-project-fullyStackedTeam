@@ -301,7 +301,7 @@
 
                 </TabItem>
 
-                <TabItem Header="Appointments">
+                <TabItem Header="Appointments" Name="AppointentsTabItem">
 
                     <Grid>
                         <Grid.ColumnDefinitions>
@@ -491,6 +491,13 @@
                                     Name="BtnCancelAppointment"></Button>
 
                         </WrapPanel>
+
+                        <Button Grid.Column="1"
+                                Grid.Row="2"
+                                Content="Add"
+                                HorizontalAlignment="Right"
+                                Click="Button_Click"
+                                ></Button>
 
                         <ListBox Grid.Column="1"
                                  Grid.Row="1"
