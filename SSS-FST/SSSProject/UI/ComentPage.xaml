@@ -6,33 +6,52 @@
       xmlns:local="clr-namespace:SSSProject.UI"
       mc:Ignorable="d" 
       Title="ComentPage"
-      Height="150" Width="400">
+      Height="650" Width="900">
+    <Page.Resources>
+        <Style TargetType="Label">
+            <Setter Property="Height" Value="26"/>
+            <Setter Property="Margin" Value="0 6 0 0"></Setter>
+            <Setter Property="HorizontalAlignment" Value="Left"></Setter>
+        </Style>
+        <Style TargetType="TextBox">
+            <Setter Property="Height" Value="26"/>
+            <Setter Property="Margin" Value="0 0 0 0"></Setter>
+            <Setter Property="VerticalContentAlignment" Value="Center"></Setter>
+        </Style>
+        <Style TargetType="Button">
+            <Setter Property="Width" Value="65"></Setter>
+            <Setter Property="Height" Value="25"></Setter>
+            <Setter Property="Margin" Value="10 10 0 10"></Setter>
+        </Style>
+    </Page.Resources>
 
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
         </Grid.ColumnDefinitions>
-        <Grid.RowDefinitions>
-            <RowDefinition Height="Auto"></RowDefinition>
-            <RowDefinition Height="Auto"></RowDefinition>
-            <RowDefinition Height="Auto"></RowDefinition>
-            <RowDefinition Height="Auto"></RowDefinition>
-        </Grid.RowDefinitions>
 
-        <TextBox Grid.Row="0" IsReadOnly="true" Text="Oceni trenera od 1 do 5 ocenom" ></TextBox>
-        <TextBox Grid.Row="1" Width="50" Name="txtRating" HorizontalAlignment="Left" ></TextBox>
-        <TextBox Grid.Row="2" 
-                 Name="txtComent"
-                 Height="40"
-                 ></TextBox>
+        <StackPanel Grid.Column="1"
+                    VerticalAlignment="Center">
 
-        <Button Grid.Row="3"
-                Width="100"
-                Height="40"
-                Content="Add Coment"
-                HorizontalAlignment="Right"
-                Margin="5 5 5 5"
-                Click="Button_Click"></Button>
-            
+            <Label Content="Rate the other user:"></Label>
+
+            <TextBox Name="txtRating"></TextBox>
+
+            <Label Content="Comment:"></Label>
+
+            <TextBox Name="txtComent"
+                     Height="50"></TextBox>
+
+            <WrapPanel HorizontalAlignment="Right">
+
+                <Button Content="Add Comment"
+                        Width="100"
+                        Click="Button_Click"></Button>
+
+            </WrapPanel>
+
+        </StackPanel>
     </Grid>
 </Page>

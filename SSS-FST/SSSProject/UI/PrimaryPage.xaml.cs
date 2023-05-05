@@ -332,6 +332,12 @@ namespace SSSProject.UI
             {
                 ViewCoach(DgAppointments);
             }
+
+            var selected = DgAppointments.SelectedItem as Appointment;
+            if (selected != null)
+            {
+                ShowComments(selected);
+            }
         }
 
         #endregion
