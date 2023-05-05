@@ -467,7 +467,6 @@
                                 ItemsSource="{Binding Path=Props}"></ListBox>
                         </Grid>
                         <DataGrid Grid.Column="0"
-                                  Grid.RowSpan="2"
                                   CanUserAddRows="False"
                                   IsReadOnly="True"
                                   SelectionMode="Single"
@@ -476,19 +475,30 @@
 
                         </DataGrid>
 
+                        <DataGrid Grid.Column="0"
+                                  Grid.Row="1"
+                                  CanUserAddRows="False"
+                                  IsReadOnly="True"
+                                  SelectionMode="Single"
+                                  Name="DgBookedAppointments"
+                                  AutoGeneratingColumn="DgBookedAppointments_AutoGeneratingColumn"></DataGrid>
+
                         <WrapPanel Grid.Column="0"
                                    Grid.Row="2"
                                    HorizontalAlignment="Right">
 
                             <Button Content="Book Appointment"
                                     Name="BtnBookAppointment"
-                                    Width="120"></Button>
+                                    Width="120"
+                                    Click="BtnBookAppointment_Click"></Button>
 
                             <Button Content="Add"
-                                    Name="BtnAddAppointment"></Button>
+                                    Name="BtnAddAppointment"
+                                    Click="BtnAddAppointment_Click"></Button>
 
                             <Button Content="Cancel"
-                                    Name="BtnCancelAppointment"></Button>
+                                    Name="BtnCancelAppointment"
+                                    Click="BtnCancelAppointment_Click"></Button>
 
                         </WrapPanel>
 

@@ -68,5 +68,10 @@ namespace SSS_FullyStackedTeam.Model
                 SecondaryLanguages = newList
             };
         }
+
+        public override string ToString()
+        {
+            return $"{FirstName} {LastName}";
+        }
     }
 }

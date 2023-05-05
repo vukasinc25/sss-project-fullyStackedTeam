@@ -11,7 +11,7 @@ namespace SSS_FullyStackedTeam.Repository
     internal interface IClientRepository
     {
         List<Client> GetAll();
-        Client GetById(int id);
+        Client GetById(int? id);
         int Add(Client client);
         void Update(int id, Client client);
         void Delete(int id);

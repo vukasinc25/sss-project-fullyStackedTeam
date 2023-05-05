@@ -40,5 +40,10 @@ namespace SSS_FullyStackedTeam.Model
                 User = User.Clone() as User
             };
         }
+
+        public override string ToString()
+        {
+            return User.ToString();
+        }
     }
 }

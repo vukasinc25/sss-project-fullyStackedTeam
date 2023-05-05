@@ -28,7 +28,7 @@ namespace SSS_FullyStackedTeam.Model
         }
 
         private Client client;
-        public int ClientId { get; set; }
+        public int? ClientId { get; set; }
 
         public Client Client
         {
@@ -36,7 +36,7 @@ namespace SSS_FullyStackedTeam.Model
             set
             {
                 client = value;
-                CoachId = client.Id;
+                ClientId = client?.Id;
             }
         }
 

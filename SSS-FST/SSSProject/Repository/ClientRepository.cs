@@ -199,7 +199,7 @@ namespace SSS_FullyStackedTeam.Repository
             return props;
         }
 
-        public Client GetById(int id)
+        public Client GetById(int? id)
         {
             using (SqlConnection conn = new SqlConnection(Config.CONNECTION_STRING))
             {
