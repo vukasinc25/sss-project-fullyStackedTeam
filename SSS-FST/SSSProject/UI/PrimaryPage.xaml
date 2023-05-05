@@ -167,46 +167,46 @@
                             <Label Grid.Column="3"
                                    Grid.Row="0"
                                    Content="Height:"
-                                   Name="lblHight"
+                                   Name="lblProfileHeight"
                                    Style="{StaticResource ResourceKey=ProfileLabel}" Grid.ColumnSpan="2" HorizontalAlignment="Left" Margin="171,12,0,12"></Label>
 
                             <Label Grid.Column="4"
                                    Grid.Row="0"
-                                   Name="lblHight1"
+                                   Name="lblProfileHeightValue"
                                    Content="{Binding Path=Height}" Margin="0,12,0,12"></Label>
 
                             <Label Grid.Column="3"
                                    Grid.Row="0"
                                    Content="Diploma:"
-                                   Name="lblDiploma"
+                                   Name="lblProfileDiploma"
                                    Style="{StaticResource ResourceKey=ProfileLabel}" Grid.ColumnSpan="2" HorizontalAlignment="Left" Margin="162,12,0,12"></Label>
 
                             <Label Grid.Row="0"
                                    Grid.Column="4"
-                                   Name="lblDiploma1"
+                                   Name="lblProfileDiplomaValue"
                                    Content="{Binding Path=DiplomaName}" Margin="0,12,0,12"
                                    />
 
                             <Label Grid.Column="3"
                                    Grid.Row="1"
                                    Content="Weight:"
-                                   Name="lblWeight"
+                                   Name="lblProfileWeight"
                                    Style="{StaticResource ResourceKey=ProfileLabel}" Grid.ColumnSpan="2" HorizontalAlignment="Left" Margin="168,12,0,12"></Label>
 
                             <Label Grid.Column="4"
                                    Grid.Row="1"
-                                   Name="lblWeight1"
+                                   Name="lblProfileWeightValue"
                                    Content="{Binding Path=Weight}" Margin="0,12,0,12"></Label>
 
                             <Label Grid.Row="1"
                                    Grid.Column="3"
                                    Content="Sertificat:"
-                                   Name="lblSertificat"
+                                   Name="lblProfileSertificat"
                                    Style="{StaticResource ResourceKey=ProfileLabel}" Grid.ColumnSpan="2" HorizontalAlignment="Left" Margin="160,12,0,12"/>
 
                             <Label Grid.Row="1"
                                    Grid.Column="4"
-                                   Name="lblSertificat1"
+                                   Name="lblProfileSertificatValue"
                                    Content="{Binding Path=SertificateName}" Margin="0,12,0,12"/>
 
                             <Label Grid.Column="3"
@@ -343,8 +343,7 @@
                             <Label
                                 Grid.Row="0" 
                                 Grid.Column="1"
-                                Name="lblFirstNameAA"
-                                Content="{Binding Path=User.FirstName}"></Label>
+                                Name="lblFirstNameAA"></Label>
 
                             <Label 
                                 Grid.Row="1"
@@ -356,8 +355,7 @@
                             <Label
                                 Grid.Row="1" 
                                 Grid.Column="1"
-                                Name="lblLastNameAA"
-                                Content="{Binding Path=User.LastName}"></Label>
+                                Name="lblLastNameAA"></Label>
 
                             <Label 
                                 Grid.Row="2"
@@ -369,8 +367,7 @@
                             <Label
                                 Grid.Row="2" 
                                 Grid.Column="1"
-                                Name="lblHeightAA"
-                                Content="{Binding Path=Height}"></Label>
+                                Name="lblHeightAA"></Label>
 
                             <Label 
                                 Grid.Row="2"
@@ -382,8 +379,7 @@
                             <Label
                                 Grid.Row="2" 
                                 Grid.Column="1"
-                                Name="lblDiplomaAA"
-                                Content="{Binding Path=DiplomaName}"></Label>
+                                Name="lblDiplomaAA"></Label>
 
                             <Label 
                                 Grid.Row="3"
@@ -395,8 +391,7 @@
                             <Label
                                 Grid.Row="3" 
                                 Grid.Column="1"
-                                Name="lblWeightAA"
-                                Content="{Binding Path=Weight}"></Label>
+                                Name="lblWeightAA"></Label>
 
                             <Label 
                                 Grid.Row="3"
@@ -408,8 +403,7 @@
                             <Label
                                 Grid.Row="3" 
                                 Grid.Column="1"
-                                Name="lblSertificatAA"
-                                Content="{Binding Path=SertificateName}"></Label>
+                                Name="lblSertificatAA"></Label>
 
                             <Label 
                                 Grid.Row="4"
@@ -421,8 +415,7 @@
                             <Label
                                 Grid.Row="4" 
                                 Grid.Column="1"
-                                Name="lblTitleAA"
-                                Content="{Binding Path=Title}"></Label>
+                                Name="lblTitleAA"></Label>
                             
                             <Label 
                                 Grid.Row="0"
@@ -435,8 +428,7 @@
                                 Grid.Row="0" 
                                 Grid.Column="3"
                                 Name="lblGoalsAA"
-                                Grid.RowSpan="2"
-                                ItemsSource="{Binding Path=Goals}"></ListBox>
+                                Grid.RowSpan="2"></ListBox>
                             
                             <Label 
                                 Grid.Row="2"
@@ -449,8 +441,7 @@
                                 Grid.Row="2" 
                                 Grid.Column="3"
                                 Name="lblIllnesesAA"
-                                Grid.RowSpan="2"
-                                ItemsSource="{Binding Path=Illnesses}"></ListBox>
+                                Grid.RowSpan="2"></ListBox>
 
                             <Label 
                                 Grid.Row="4"
@@ -463,16 +454,21 @@
                                 Grid.Row="4" 
                                 Grid.Column="3"
                                 Name="lblPropsAA"
-                                Grid.RowSpan="2"
-                                ItemsSource="{Binding Path=Props}"></ListBox>
+                                Grid.RowSpan="2"></ListBox>
                         </Grid>
+
                         <DataGrid Grid.Column="0"
+                                  Grid.Row="0"
                                   CanUserAddRows="False"
                                   IsReadOnly="True"
                                   SelectionMode="Single"
                                   Name="DgAppointments" 
                                   AutoGeneratingColumn="DgAppointments_AutoGeneratingColumn">
-
+                            <DataGrid.RowStyle>
+                                <Style TargetType="DataGridRow">
+                                    <EventSetter Event="MouseUp" Handler="DgAppointments_MouseUp"></EventSetter>
+                                </Style>
+                            </DataGrid.RowStyle>
                         </DataGrid>
 
                         <DataGrid Grid.Column="0"
@@ -481,7 +477,13 @@
                                   IsReadOnly="True"
                                   SelectionMode="Single"
                                   Name="DgBookedAppointments"
-                                  AutoGeneratingColumn="DgBookedAppointments_AutoGeneratingColumn"></DataGrid>
+                                  AutoGeneratingColumn="DgBookedAppointments_AutoGeneratingColumn">
+                            <DataGrid.RowStyle>
+                                <Style TargetType="DataGridRow">
+                                    <EventSetter Event="MouseUp" Handler="DgBookedAppointments_MouseUp"></EventSetter>
+                                </Style>
+                            </DataGrid.RowStyle>
+                        </DataGrid>
 
                         <WrapPanel Grid.Column="0"
                                    Grid.Row="2"

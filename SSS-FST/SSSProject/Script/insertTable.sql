@@ -17,18 +17,17 @@ insert into Props (Name) values ('Treadmill')
 insert into Props (Name) values ('Exercise bike')
 
 
-delete from Props
 select * from Goals
+select * from Props
+select * from Illnesses
 select * from HasGoals
 select * from HasLanguages
-select * from Props
+
 select * from Languages
 select * from Clients
 select * from Users
 select * from Coaches
-select * from Illnesses
+
 select * from HasIllneses
 select * from HasProps
 select * from Appointments
-
-update Appointments set Status = 0 where id = 2

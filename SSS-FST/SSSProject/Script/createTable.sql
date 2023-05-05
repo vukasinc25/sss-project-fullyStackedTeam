@@ -3,9 +3,10 @@ drop table HasGoals
 drop table HasProps
 drop table HasLanguages
 drop table Appointments
+drop table Comments
+drop table Coments
 drop table Clients
 drop table Coaches
-drop table Comments
 drop table Users
 drop table Languages
 drop table Goals
@@ -145,5 +146,3 @@ create table Coments(
     constraint FK_Clients_Coments
     foreign key (ClientId) references Clients (id)
 )
-
-select * from Coments

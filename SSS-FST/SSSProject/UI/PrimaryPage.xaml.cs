@@ -48,80 +48,70 @@ namespace SSSProject.UI
 
             if (Coach.SertificateName == null)
             {
-                //lblHight.Visibility = Visibility.Visible;
-                //lblHight1.Visibility = Visibility.Visible;
-                //lblWeight.Visibility = Visibility.Visible;
-                //lblWeight1.Visibility = Visibility.Visible;
-                //lblGoals.Visibility = Visibility.Visible;
-                //LbxGoals.Visibility = Visibility.Visible;
-                //lblIllnesses.Visibility = Visibility.Visible;
-                //LbxIllnesses.Visibility = Visibility.Visible;
-                //lblProps.Visibility = Visibility.Visible;
-                //LbxProps.Visibility = Visibility.Visible;
-                lblDiploma.Visibility = Visibility.Collapsed;
-                lblDiploma1.Visibility = Visibility.Collapsed;
-                lblSertificat.Visibility = Visibility.Collapsed;
-                lblSertificat1.Visibility = Visibility.Collapsed;
+                lblProfileDiploma.Visibility = Visibility.Collapsed;
+                lblProfileDiplomaValue.Visibility = Visibility.Collapsed;
+
+                lblProfileSertificat.Visibility = Visibility.Collapsed;
+                lblProfileSertificatValue.Visibility = Visibility.Collapsed;
+
                 lblTitle.Visibility = Visibility.Collapsed;
                 lblTitle1.Visibility = Visibility.Collapsed;
+
                 lblProfit.Visibility = Visibility.Collapsed;
                 lblProfit1.Visibility = Visibility.Collapsed;
+
                 lblSuccessfulApointments.Visibility = Visibility.Collapsed;
                 lblSuccessfulApointments1.Visibility = Visibility.Collapsed;
+
                 BtnAddAppointment.Visibility = Visibility.Collapsed;
-                //lblHeightA.Visibility = Visibility.Visible;
-                //lblHeightAA.Visibility = Visibility.Visible;
-                //lblWeightA.Visibility = Visibility.Visible;
-                //lblWeightAA.Visibility = Visibility.Visible;
-                lblTitleA.Visibility = Visibility.Collapsed;
-                lblTitleAA.Visibility = Visibility.Collapsed;
-                lblDiplomaA.Visibility = Visibility.Collapsed;
-                lblDiplomaAA.Visibility = Visibility.Collapsed;
-                lblSertificatA.Visibility = Visibility.Collapsed;
-                lblSertificatAA.Visibility = Visibility.Collapsed;
+
+                lblHeightA.Visibility = Visibility.Collapsed;
+                lblHeightAA.Visibility = Visibility.Collapsed;
+
+                lblWeightA.Visibility = Visibility.Collapsed;
+                lblWeightAA.Visibility = Visibility.Collapsed;
+
+                lblGoalsA.Visibility = Visibility.Collapsed;
+                lblGoalsAA.Visibility = Visibility.Collapsed;
+
+                lblIllnesesA.Visibility = Visibility.Collapsed;
+                lblIllnesesAA.Visibility = Visibility.Collapsed;
+
+                lblPropsA.Visibility = Visibility.Collapsed;
+                lblPropsAA.Visibility = Visibility.Collapsed;
 
                 DataContext = Client;
             }
             else
             {
-                //lblDiploma.Visibility = Visibility.Visible;
-                //lblDiploma1.Visibility = Visibility.Visible;
-                //lblSertificat.Visibility = Visibility.Visible;
-                //lblSertificat1.Visibility = Visibility.Visible;
-                //lblTitle.Visibility = Visibility.Visible;
-                //lblTitle1.Visibility = Visibility.Visible;
-                //lblProfit.Visibility = Visibility.Visible;
-                //lblProfit1.Visibility = Visibility.Visible;
-                //lblSuccessfulApointments.Visibility = Visibility.Visible;
-                //lblSuccessfulApointments1.Visibility = Visibility.Visible;
-                lblHight.Visibility = Visibility.Collapsed;
-                lblHight1.Visibility = Visibility.Collapsed;
-                lblWeight.Visibility = Visibility.Collapsed;
-                lblWeight1.Visibility = Visibility.Collapsed;
+                lblProfileHeight.Visibility = Visibility.Collapsed;
+                lblProfileHeightValue.Visibility = Visibility.Collapsed;
+
+                lblProfileWeight.Visibility = Visibility.Collapsed;
+                lblProfileWeightValue.Visibility = Visibility.Collapsed;
+
                 lblGoals.Visibility = Visibility.Collapsed;
                 LbxGoals.Visibility = Visibility.Collapsed;
+
                 lblIllnesses.Visibility = Visibility.Collapsed;
                 LbxIllnesses.Visibility = Visibility.Collapsed;
+
                 lblProps.Visibility = Visibility.Collapsed;
                 LbxProps.Visibility = Visibility.Collapsed;
+
                 BtnBookAppointment.Visibility = Visibility.Collapsed;
                 BtnCancelAppointment.Visibility = Visibility.Collapsed;
-                lblHeightA.Visibility = Visibility.Collapsed;
-                lblHeightAA.Visibility = Visibility.Collapsed;
-                lblWeightA.Visibility = Visibility.Collapsed;
-                lblWeightAA.Visibility = Visibility.Collapsed;
-                lblGoalsA.Visibility = Visibility.Collapsed;
-                lblGoalsAA.Visibility = Visibility.Collapsed;
-                lblIllnesesA.Visibility = Visibility.Collapsed;
-                lblIllnesesAA.Visibility = Visibility.Collapsed;
-                lblPropsA.Visibility = Visibility.Collapsed;
-                lblPropsAA.Visibility = Visibility.Collapsed;
-                DataContext = Coach;
-            }
 
-            if(AppointentsTabItem != null)
-            {
-                LbxComments.ItemsSource = comentRepository.GetAll().Where(p => p.Coach.Id == Coach.Id).ToList();
+                lblTitleA.Visibility = Visibility.Collapsed;
+                lblTitleAA.Visibility = Visibility.Collapsed;
+
+                lblDiplomaA.Visibility = Visibility.Collapsed;
+                lblDiplomaAA.Visibility = Visibility.Collapsed;
+
+                lblSertificatA.Visibility = Visibility.Collapsed;
+                lblSertificatAA.Visibility = Visibility.Collapsed;
+
+                DataContext = Coach;
             }
         }
 
@@ -186,7 +176,7 @@ namespace SSSProject.UI
         private void DgAppointments_AutoGeneratingColumn(object sender, DataGridAutoGeneratingColumnEventArgs e)
         {
             if (e.PropertyName == "Id" || e.PropertyName == "ClientId" || 
-                e.PropertyName == "CoachId")
+                e.PropertyName == "CoachId" || e.PropertyName == "Client")
             {
                 e.Column.Visibility = Visibility.Collapsed;
             }
@@ -194,7 +184,8 @@ namespace SSSProject.UI
 
         private void DgBookedAppointments_AutoGeneratingColumn(object sender, DataGridAutoGeneratingColumnEventArgs e)
         {
-            if (e.PropertyName == "Id")
+            if (e.PropertyName == "Id" || e.PropertyName == "ClientId" ||
+                e.PropertyName == "CoachId")
             {
                 e.Column.Visibility = Visibility.Collapsed;
             }
@@ -248,6 +239,108 @@ namespace SSSProject.UI
             }
         }
 
+        private void ViewCoach( DataGrid Selected)
+        {
+            Binding firstName = new Binding();
+            firstName.Path = new PropertyPath("Coach.User.FirstName");
+            lblFirstNameAA.SetBinding(Label.ContentProperty, firstName);
+            lblFirstNameAA.DataContext = Selected.SelectedItem;
+
+            Binding LastName = new Binding();
+            LastName.Path = new PropertyPath("Coach.User.LastName");
+            lblLastNameAA.SetBinding(Label.ContentProperty, LastName);
+            lblLastNameAA.DataContext = Selected.SelectedItem;
+
+            Binding DiplomaName = new Binding();
+            DiplomaName.Path = new PropertyPath("Coach.DiplomaName");
+            lblDiplomaAA.SetBinding(Label.ContentProperty, DiplomaName);
+            lblDiplomaAA.DataContext = Selected.SelectedItem;
+
+            Binding SertificateName = new Binding();
+            SertificateName.Path = new PropertyPath("Coach.SertificateName");
+            lblSertificatAA.SetBinding(Label.ContentProperty, SertificateName);
+            lblSertificatAA.DataContext = Selected.SelectedItem;
+
+            Binding Title = new Binding();
+            Title.Path = new PropertyPath("Coach.Title");
+            lblTitleAA.SetBinding(Label.ContentProperty, Title);
+            lblTitleAA.DataContext = Selected.SelectedItem;
+        }
+
+        private void ViewClient()
+        {
+            Binding firstName = new Binding();
+            firstName.Path = new PropertyPath("Client.User.FirstName");
+            lblFirstNameAA.SetBinding(Label.ContentProperty, firstName);
+            lblFirstNameAA.DataContext = DgBookedAppointments.SelectedItem;
+
+            Binding LastName = new Binding();
+            LastName.Path = new PropertyPath("Client.User.LastName");
+            lblLastNameAA.SetBinding(Label.ContentProperty, LastName);
+            lblLastNameAA.DataContext = DgBookedAppointments.SelectedItem;
+
+            Binding Height = new Binding();
+            Height.Path = new PropertyPath("Client.Height");
+            lblHeightAA.SetBinding(Label.ContentProperty, Height);
+            lblHeightAA.DataContext = DgBookedAppointments.SelectedItem;
+
+            Binding Weight = new Binding();
+            Weight.Path = new PropertyPath("Client.Weight");
+            lblWeightAA.SetBinding(Label.ContentProperty, Weight);
+            lblWeightAA.DataContext = DgBookedAppointments.SelectedItem;
+
+            Binding Goals = new Binding();
+            Goals.Path = new PropertyPath("Client.Goals");
+            lblGoalsAA.SetBinding(ListBox.ItemsSourceProperty, Goals);
+            lblGoalsAA.DataContext = DgBookedAppointments.SelectedItem;
+
+            Binding Illnesses = new Binding();
+            Illnesses.Path = new PropertyPath("Client.Illnesses");
+            lblIllnesesAA.SetBinding(ListBox.ItemsSourceProperty, Illnesses);
+            lblIllnesesAA.DataContext = DgBookedAppointments.SelectedItem;
+
+            Binding Props = new Binding();
+            Props.Path = new PropertyPath("Client.Props");
+            lblPropsAA.SetBinding(ListBox.ItemsSourceProperty, Props);
+            lblPropsAA.DataContext = DgBookedAppointments.SelectedItem;
+
+
+        }
+
+        public void ShowComments(Appointment selected)
+        {
+
+            LbxComments.ItemsSource = comentRepository.GetAll().Where(c => c.Coach.Id == selected.Coach.Id);
+        }
+
+        private void DgBookedAppointments_MouseUp(object sender, MouseButtonEventArgs e)
+        {
+            if (Coach.Id != 0)
+            {
+                ViewClient();
+            }
+            else
+            {
+                ViewCoach(DgBookedAppointments);
+            }
+            var selected = DgBookedAppointments.SelectedItem as Appointment;
+            if (selected != null)
+            {
+                ShowComments(selected);
+            }
+            
+        }
+
+        private void DgAppointments_MouseUp(object sender, MouseButtonEventArgs e)
+        {
+            if (Coach.Id == 0)
+            {
+                ViewCoach(DgAppointments);
+            }
+        }
+
         #endregion
+
+
     }
 }
