@@ -49,6 +49,15 @@ create table Users(
 	foreign key (PrimaryLanguageId) references Languages (id)
 )
 
+create table Comments(
+	id int identity(1,1) primary key,
+	Contents varchar(200),
+	Rating float,
+	UserId int,
+	constraint FK_Users_Comments
+	foreign key (UserId) references Users (id)
+)
+
 create table Clients(
 	id int identity(1,1) primary key,
 	Height float,
@@ -75,14 +84,14 @@ create table Appointments(
     id int identity(1,1) primary key,
     CoachId int,
     ClientId int,
-    TimeOfStart date,
-    Duration time,
+    TimeOfStart varchar(30),
+    Duration varchar(30),
     Price float,
-    Status bit,
+    Status bit not null,
     constraint FK_Coaches_Appointments
     foreign key (CoachId) references Coaches (id),
-    constraint FK_Clients_Appointments
-    foreign key (ClientId) references Clients (id)
+    --constraint FK_Clients_Appointments
+    --foreign key (ClientId) references Clients (id)
 )
 
 create table HasIllneses(

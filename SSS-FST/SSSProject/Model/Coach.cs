@@ -48,5 +48,10 @@ namespace SSS_FullyStackedTeam.Model
                 IsSent = IsSent
             };
         }
+
+        public override string ToString()
+        {
+            return User.ToString();
+        }
     }
 }

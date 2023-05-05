@@ -32,19 +32,19 @@ namespace SSSProject.UI
         private IClientService clientService = new ClientService();
         private ICoachService coachService = new CoachService();
         private IComentRepository comentRepository = new ComentsRepository();
+        private IAppointmentService appointmentService = new AppointmentService();
+
         private Client Client;
 
         private Coach Coach;
+
+        private List<Appointment> appointments = new List<Appointment>();
 
         public PrimaryPage(MainWindow window)
         {
             InitializeComponent();
             Window = window;
-            Data.Instance.LoggedInClient = clientService.GetById(Data.Instance.LoggedInClient.Id);
-            //Data.Instance.LoggedInCoach = coachService.GetById(Data.Instance.LoggedInCoach.Id);
-
-            Client = Data.Instance.LoggedInClient;
-            Coach = Data.Instance.LoggedInCoach;
+            RefreshAll();
 
             if (Coach.SertificateName == null)
             {
@@ -79,7 +79,7 @@ namespace SSSProject.UI
                 lblDiplomaAA.Visibility = Visibility.Collapsed;
                 lblSertificatA.Visibility = Visibility.Collapsed;
                 lblSertificatAA.Visibility = Visibility.Collapsed;
-                
+
                 DataContext = Client;
             }
             else
@@ -113,15 +113,38 @@ namespace SSSProject.UI
                 lblGoalsA.Visibility = Visibility.Collapsed;
                 lblGoalsAA.Visibility = Visibility.Collapsed;
                 lblIllnesesA.Visibility = Visibility.Collapsed;
-                lblIllnesesAA.Visibility = Visibility.Collapsed;    
+                lblIllnesesAA.Visibility = Visibility.Collapsed;
                 lblPropsA.Visibility = Visibility.Collapsed;
-                lblPropsAA.Visibility = Visibility.Collapsed;    
+                lblPropsAA.Visibility = Visibility.Collapsed;
                 DataContext = Coach;
             }
 
             if(AppointentsTabItem != null)
             {
                 LbxComments.ItemsSource = comentRepository.GetAll().Where(p => p.Coach.Id == Coach.Id).ToList();
+            }
+        }
+
+        public void RefreshAll()
+        {
+            Data.Instance.LoggedInClient = clientService.GetById(Data.Instance.LoggedInClient.Id);
+            Data.Instance.LoggedInCoach = coachService.GetById(Data.Instance.LoggedInCoach.Id);
+
+            Client = Data.Instance.LoggedInClient;
+            Coach = Data.Instance.LoggedInCoach;
+
+            if (Coach.Id != 0)
+            {
+                appointments = appointmentService.GetAll().Where(a => a.Status == false && Coach.Id == a.CoachId).ToList();
+                DgAppointments.ItemsSource = appointments;
+
+                DgBookedAppointments.ItemsSource = appointmentService.GetAll().Where(a => a.Status == true && a.Coach.Id == Coach.Id).ToList();
+            }
+            else
+            {
+                DgAppointments.ItemsSource = appointmentService.GetAll().Where(a => a.Status == false).ToList();
+
+                DgBookedAppointments.ItemsSource = appointmentService.GetAll().Where(a => a.ClientId == Client.Id).ToList();
             }
         }
 
@@ -146,7 +169,7 @@ namespace SSSProject.UI
 
         private void BtnEditExtraInfo_Click(object sender, RoutedEventArgs e)
         {
-            if(Client.Id != 0)
+            if (Client.Id != 0)
             {
                 Window.Content = new ExtraClientInfo(Window, this);
             }
@@ -158,7 +181,18 @@ namespace SSSProject.UI
 
         #endregion
 
+        #region Appointments
+
         private void DgAppointments_AutoGeneratingColumn(object sender, DataGridAutoGeneratingColumnEventArgs e)
+        {
+            if (e.PropertyName == "Id" || e.PropertyName == "ClientId" || 
+                e.PropertyName == "CoachId")
+            {
+                e.Column.Visibility = Visibility.Collapsed;
+            }
+        }
+
+        private void DgBookedAppointments_AutoGeneratingColumn(object sender, DataGridAutoGeneratingColumnEventArgs e)
         {
             if (e.PropertyName == "Id")
             {
@@ -175,5 +209,45 @@ namespace SSSProject.UI
         {
             LbxComments.ItemsSource = comentRepository.GetAll().Where(p => p.Coach.Id == Coach.Id).ToList();
         }
+
+        private void BtnAddAppointment_Click(object sender, RoutedEventArgs e)
+        {
+            var AddAppointmentWindow = new AddAppointmentWindow();
+
+            var successeful = AddAppointmentWindow.ShowDialog();
+
+            if ((bool)successeful)
+            {
+                RefreshAll();
+            }
+        }
+
+        private void BtnCancelAppointment_Click(object sender, RoutedEventArgs e)
+        {
+            Appointment appointment = DgBookedAppointments.SelectedItem as Appointment;
+            if (appointment != null)
+            {
+                appointment.Client = null;
+                appointment.Status = false;
+                appointmentService.Update(appointment.Id, appointment);
+
+                RefreshAll();
+            }
+        }
+
+        private void BtnBookAppointment_Click(object sender, RoutedEventArgs e)
+        {
+            Appointment appointment = DgAppointments.SelectedItem as Appointment;
+            if (appointment != null)
+            {
+                appointment.ClientId = Client.Id;
+                appointment.Status = true;
+                appointmentService.Update(appointment.Id, appointment);
+
+                RefreshAll();
+            }
+        }
+
+        #endregion
     }
 }

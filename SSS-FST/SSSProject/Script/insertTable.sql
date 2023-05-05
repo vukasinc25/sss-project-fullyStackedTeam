@@ -29,3 +29,6 @@ select * from Coaches
 select * from Illnesses
 select * from HasIllneses
 select * from HasProps
+select * from Appointments
+
+update Appointments set Status = 0 where id = 2

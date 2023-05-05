@@ -70,5 +70,10 @@ namespace SSS_FullyStackedTeam.Model
                 isAdmin = isAdmin
             };
         }
+
+        public override string ToString()
+        {
+            return $"{FirstName} {LastName}";
+        }
     }
 }

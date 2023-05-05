@@ -64,11 +64,16 @@ namespace SSS_FullyStackedTeam.Repository
                         Duration = TimeSpan.Parse((string)row["Duration"]),
                         Price = (double)row["Price"],
                         Status = (bool)row["Status"],
-                        ClientId = (int)row["ClientId"],
+                        ClientId = Convert.IsDBNull(row["ClientId"]) ? null : (int?)row["ClientId"],
                         CoachId = (int)row["CoachId"]
+                        //SchoolId = Convert.IsDBNull(row["schID"]) ? null : (int?)row["schID"],
                     };
 
-                    appointment.Client = clientRepository.GetById(appointment.ClientId);
+                    if (appointment.ClientId != null)
+                    {
+                        appointment.Client = clientRepository.GetById(appointment.ClientId);
+                    }
+
                     appointment.Coach = coachRepository.GetById(appointment.CoachId);
 
                     appointments.Add(appointment);
