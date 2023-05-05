@@ -44,6 +44,7 @@ create table Users(
 	City varchar(30),
 	Country varchar(30),
 	PrimaryLanguageId int,
+	isAdmin bit,
 	constraint FK_Languages_Users
 	foreign key (PrimaryLanguageId) references Languages (id)
 )

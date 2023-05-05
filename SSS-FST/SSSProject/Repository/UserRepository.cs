@@ -101,6 +101,7 @@ namespace SSS_FullyStackedTeam.Repository
                         Street = row["Street"] as string,
                         City = row["City"] as string,
                         Country = row["Country"] as string,
+                        isAdmin = row["isAdmin"] as string
                         //TODO time zone
                     };
 
@@ -155,6 +156,7 @@ namespace SSS_FullyStackedTeam.Repository
                         Street = row["Street"] as string,
                         City = row["City"] as string,
                         Country = row["Country"] as string,
+                        isAdmin = row["isAdmin"] as string
                         //TODO time zone
                     };
 
