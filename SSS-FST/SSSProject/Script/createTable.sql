@@ -3,6 +3,8 @@ drop table HasGoals
 drop table HasProps
 drop table HasLanguages
 drop table Appointments
+drop table Comments
+drop table Coments
 drop table Clients
 drop table Coaches
 drop table Users
