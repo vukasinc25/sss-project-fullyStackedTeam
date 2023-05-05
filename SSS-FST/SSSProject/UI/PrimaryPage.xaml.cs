@@ -28,14 +28,14 @@ namespace SSSProject.UI
     {
         public MainWindow Window { get; set; }
 
-
+        private IUserService userService = new UserService();
         private IClientService clientService = new ClientService();
         private ICoachService coachService = new CoachService();
         private IComentRepository comentRepository = new ComentsRepository();
         private IAppointmentService appointmentService = new AppointmentService();
 
         private Client Client;
-
+        private User User;
         private Coach Coach;
 
         private List<Appointment> appointments = new List<Appointment>();
@@ -44,10 +44,13 @@ namespace SSSProject.UI
         {
             InitializeComponent();
             Window = window;
+
             RefreshAll();
+
 
             if (Coach.SertificateName == null)
             {
+                AdminTabItem.Visibility = Visibility.Collapsed;
                 lblProfileDiploma.Visibility = Visibility.Collapsed;
                 lblProfileDiplomaValue.Visibility = Visibility.Collapsed;
 
@@ -82,8 +85,22 @@ namespace SSSProject.UI
 
                 DataContext = Client;
             }
+            else if(Coach.User.isAdmin.Equals(true))
+            {
+                AdminTabItem.Visibility = Visibility.Visible;
+            }
+            else if (Coach.IsSent == true)
+            {
+                AppointentsTabItem.Visibility = Visibility.Visible;
+
+                DataContext = Coach;
+            }
             else
             {
+                AdminTabItem.Visibility = Visibility.Visible;
+                AppointentsTabItem.Visibility = Visibility.Collapsed;
+
+
                 lblProfileHeight.Visibility = Visibility.Collapsed;
                 lblProfileHeightValue.Visibility = Visibility.Collapsed;
 
@@ -119,9 +136,11 @@ namespace SSSProject.UI
         {
             Data.Instance.LoggedInClient = clientService.GetById(Data.Instance.LoggedInClient.Id);
             Data.Instance.LoggedInCoach = coachService.GetById(Data.Instance.LoggedInCoach.Id);
+            Data.Instance.LoggedInUser = userService.GetById(Data.Instance.LoggedInUser.Id);
 
             Client = Data.Instance.LoggedInClient;
             Coach = Data.Instance.LoggedInCoach;
+            User = Data.Instance.LoggedInUser;
 
             if (Coach.Id != 0)
             {
@@ -349,6 +368,13 @@ namespace SSSProject.UI
             {
                 Window.Content = new VideoCallPage(Window, this, appointment.CoachId, appointment.ClientId);
             }
+        }
+
+        private void UnacceptedCoaches_Click(object sender, RoutedEventArgs e)
+        {
+            Console.WriteLine("azazaaz");
+            var unacceptedCoachesWindow = new CoachAprooval();
+            unacceptedCoachesWindow.Show();
         }
     }
 }

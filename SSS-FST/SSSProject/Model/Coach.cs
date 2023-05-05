@@ -19,7 +19,7 @@ namespace SSS_FullyStackedTeam.Model
 
         public Coach()
         {
-            IsSent = true;
+            IsSent = false;
         }
 
         private User user;

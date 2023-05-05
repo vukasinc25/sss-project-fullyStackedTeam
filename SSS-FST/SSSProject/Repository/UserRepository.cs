@@ -20,9 +20,9 @@ namespace SSS_FullyStackedTeam.Repository
             {
                 conn.Open();
                 SqlCommand command = conn.CreateCommand();
-                command.CommandText = @"insert into Users (FirstName, LastName, Email, Password, Tel, CreditCard, Street, City, Country, PrimaryLanguageId) 
+                command.CommandText = @"insert into Users (FirstName, LastName, Email, Password, Tel, CreditCard, Street, City, Country, PrimaryLanguageId, isAdmin) 
                     output inserted.Id
-                    values (@FirstName, @LastName, @Email, @Password, @Tel, @CreditCard, @Street, @City, @Country, @PrimaryLanguageId)";
+                    values (@FirstName, @LastName, @Email, @Password, @Tel, @CreditCard, @Street, @City, @Country, @PrimaryLanguageId, @isAdmin)";
                 
                 command.Parameters.Add(new SqlParameter("FirstName", user.FirstName));
                 command.Parameters.Add(new SqlParameter("LastName", user.LastName));
@@ -34,6 +34,7 @@ namespace SSS_FullyStackedTeam.Repository
                 command.Parameters.Add(new SqlParameter("City", user.City));
                 command.Parameters.Add(new SqlParameter("Country", user.Country));
                 command.Parameters.Add(new SqlParameter("PrimaryLanguageId", user.PrimaryLanguageId));
+                command.Parameters.Add(new SqlParameter("isAdmin", false));
 
                 int id = (int)command.ExecuteScalar();
 
@@ -101,7 +102,7 @@ namespace SSS_FullyStackedTeam.Repository
                         Street = row["Street"] as string,
                         City = row["City"] as string,
                         Country = row["Country"] as string,
-                        isAdmin = row["isAdmin"] as string
+                        isAdmin = (bool)row["isAdmin"]
                         //TODO time zone
                     };
 
@@ -156,7 +157,7 @@ namespace SSS_FullyStackedTeam.Repository
                         Street = row["Street"] as string,
                         City = row["City"] as string,
                         Country = row["Country"] as string,
-                        isAdmin = row["isAdmin"] as string
+                        isAdmin = (bool)row["isAdmin"]
                         //TODO time zone
                     };
 

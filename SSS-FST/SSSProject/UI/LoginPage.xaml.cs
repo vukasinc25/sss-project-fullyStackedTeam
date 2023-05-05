@@ -100,12 +100,13 @@ namespace SSS_FullyStackedTeam.UI
                     }
                 }
             }
-            
+            Data.Instance.LoggedInUser = user;
         }
 
         private void BtnCancel_Click(object sender, RoutedEventArgs e)
         {
             Window.Content = PreviousPage;
         }
+
     }
 }

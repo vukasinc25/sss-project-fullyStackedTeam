@@ -19,7 +19,7 @@ namespace SSS_FullyStackedTeam.Model
         public string City { get; set; }
         public string Country { get; set; }
         public string CreditCard { get; set; }
-        public string isAdmin { get; set; }
+        public bool isAdmin { get; set; }
 
         private Language primaryLanguage;
         public int? PrimaryLanguageId { get; set; }
@@ -40,6 +40,7 @@ namespace SSS_FullyStackedTeam.Model
         public User()
         {
             SecondaryLanguages = new List<Language>();
+            isAdmin = false;
         }
 
         public object Clone()

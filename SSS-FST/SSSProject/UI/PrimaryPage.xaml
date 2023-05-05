@@ -515,6 +515,9 @@
                     </Grid>
 
                 </TabItem>
+                <TabItem Header="Admin" Name="AdminTabItem">
+                    <Button Content="Unaccepted Coaches" Name="UnacceptedCoaches" Width="120" Click="UnacceptedCoaches_Click"></Button>
+                </TabItem>
 
             </TabControl>
         </Grid>
