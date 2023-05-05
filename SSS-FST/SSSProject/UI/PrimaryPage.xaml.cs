@@ -205,11 +205,6 @@ namespace SSSProject.UI
             Window.Content = new ComentPage(Window, 1);
         }
 
-        private void TabItem_MouseDoubleClick(object sender, MouseButtonEventArgs e)
-        {
-            LbxComments.ItemsSource = comentRepository.GetAll().Where(p => p.Coach.Id == Coach.Id).ToList();
-        }
-
         private void BtnAddAppointment_Click(object sender, RoutedEventArgs e)
         {
             var AddAppointmentWindow = new AddAppointmentWindow();
@@ -249,5 +244,14 @@ namespace SSSProject.UI
         }
 
         #endregion
+
+        private void BtnStartAppointment_Click(object sender, RoutedEventArgs e)
+        {
+            Appointment appointment = DgBookedAppointments.SelectedItem as Appointment;
+            if(appointment != null)
+            {
+                Window.Content = new VideoCallPage(Window, this, appointment.CoachId, appointment.ClientId);
+            }
+        }
     }
 }

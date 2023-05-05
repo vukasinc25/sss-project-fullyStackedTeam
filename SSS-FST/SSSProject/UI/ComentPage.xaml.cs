@@ -56,16 +56,11 @@ namespace SSSProject.UI
             else
             {
                 coment.Rating = Convert.ToDouble(txtRating.Text);
-                coment.Coach = coachService.GetById(1); // TODOO
+                coment.Coach = coachService.GetById(id);
                 coment.Coment = txtComent.Text;
                 comentRepository.Add(coment);
                 Window.Content = new PrimaryPage(Window);
             }
-        }
-
-        private void Button_Click_1(object sender, RoutedEventArgs e)
-        {
-            Window.Content = new PrimaryPage(Window);
         }
     }
 }

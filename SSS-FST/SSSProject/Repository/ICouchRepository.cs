@@ -10,7 +10,7 @@ namespace SSS_FullyStackedTeam.Repository
     interface ICouchRepository
     {
         List<Coach> GetAll();
-        Coach GetById(int id);
+        Coach GetById(int? id);
         int Add(Coach coach);
         void Update(int id, Coach coach);
         void Delete(int id);

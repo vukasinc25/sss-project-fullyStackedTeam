@@ -5,12 +5,12 @@ drop table HasLanguages
 drop table Appointments
 drop table Clients
 drop table Coaches
-drop table Comments
 drop table Users
 drop table Languages
 drop table Goals
 drop table Illnesses
 drop table Props
+drop table Coments
 
 create table Languages(
 	id int identity(1,1) primary key,
@@ -47,15 +47,6 @@ create table Users(
 	isAdmin bit,
 	constraint FK_Languages_Users
 	foreign key (PrimaryLanguageId) references Languages (id)
-)
-
-create table Comments(
-	id int identity(1,1) primary key,
-	Contents varchar(200),
-	Rating float,
-	UserId int,
-	constraint FK_Users_Comments
-	foreign key (UserId) references Users (id)
 )
 
 create table Clients(
@@ -145,5 +136,3 @@ create table Coments(
     constraint FK_Clients_Coments
     foreign key (ClientId) references Clients (id)
 )
-
-select * from Coments

@@ -48,7 +48,7 @@ namespace SSS_FullyStackedTeam.Service
             return clientRepository.GetAllProps();
         }
 
-        public Client GetById(int id)
+        public Client GetById(int? id)
         {
             return clientRepository.GetById(id);
         }

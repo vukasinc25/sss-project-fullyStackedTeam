@@ -74,7 +74,7 @@ namespace SSS_FullyStackedTeam.Repository
             return coaches;
         }
 
-        public Coach GetById(int id)
+        public Coach GetById(int? id)
         {
             using (SqlConnection conn = new SqlConnection(Config.CONNECTION_STRING))
             {

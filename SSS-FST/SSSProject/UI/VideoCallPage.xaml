@@ -13,9 +13,9 @@
             <ColumnDefinition></ColumnDefinition>
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"></RowDefinition>
             <RowDefinition></RowDefinition>
-            <RowDefinition></RowDefinition>
-            <RowDefinition></RowDefinition>
+            <RowDefinition Height="Auto"></RowDefinition>
         </Grid.RowDefinitions>
         <Grid Grid.Row="0"
               Grid.Column="0">
@@ -40,27 +40,27 @@
                  TextAlignment="Center"
                  ></TextBox>
 
-        <WrapPanel Grid.Row="2" Grid.Column="1" HorizontalAlignment="Center" VerticalAlignment="Bottom">
+        <WrapPanel Grid.Row="2" Grid.Column="1" HorizontalAlignment="Center" VerticalAlignment="Bottom" Margin="5 5 5 5">
             <Button
                Height="40"
                Width="100"
                Content="Turn On Camera"
-               Margin="5 0 5 0"></Button>
+               Click="btnTurnOnCamera_Click"></Button>
             <Button
                Height="40"
                Width="100"
                Content="Share"
-               Margin="5 0 5 0"></Button>
+               Click="Share_Click"></Button>
             <Button
                Height="40"
                Width="100"
                Content="Mute"
-               Margin="5 0 5 0"></Button>
+               Click="btnMute_Click"></Button>
             <Button 
                Height="40"
                Width="100"
                Content="Exit"
-               Margin="5 0 5 0"/>
+               Click="btnExit_Click"/>
         </WrapPanel>
     </Grid>
 </Page>
