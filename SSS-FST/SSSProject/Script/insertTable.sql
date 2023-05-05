@@ -1,4 +1,7 @@
-﻿insert into Goals (Name) values ('Gain')
+﻿insert into Users (FirstName, LastName, Email, Password, Tel, CreditCard, Street, City, Country, PrimaryLanguageId, isAdmin)
+values ('Admin', 'Admin', 'a', 'a', '060213123', '1234567', 'Street', 'City', 'Country', 1, 1)
+
+insert into Goals (Name) values ('Gain')
 insert into Goals (Name) values ('Loss')
 insert into Goals (Name) values ('Misc')
 

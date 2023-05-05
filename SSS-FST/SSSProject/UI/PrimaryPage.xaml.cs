@@ -88,6 +88,8 @@ namespace SSSProject.UI
             else if(Coach.User.isAdmin.Equals(true))
             {
                 AdminTabItem.Visibility = Visibility.Visible;
+
+                DataContext = Coach;
             }
             else if (Coach.IsSent == true)
             {
@@ -97,7 +99,7 @@ namespace SSSProject.UI
             }
             else
             {
-                AdminTabItem.Visibility = Visibility.Visible;
+                AdminTabItem.Visibility = Visibility.Collapsed;
                 AppointentsTabItem.Visibility = Visibility.Collapsed;
 
 
