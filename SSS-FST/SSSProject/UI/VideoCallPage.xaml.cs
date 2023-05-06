@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Timers;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Data;
@@ -31,6 +32,9 @@ namespace SSSProject.UI
         private Client client = Data.Instance.LoggedInClient;
         private ICoachService coachService = new CoachService();
         private IClientService clientService = new ClientService();
+        int lowerPressure;
+        int upperPressure;
+        int heartRate;
         public VideoCallPage(MainWindow mainWindow, Page previousPage, int CoachId, int? ClientId)
         {
             InitializeComponent();
@@ -48,6 +52,34 @@ namespace SSSProject.UI
                 txtCoachInfo.Text = coachService.GetById(Coachid).ToString();
                 txtClientInfo.Text = client.User.LastName;
             }
+
+            //TIMER
+            System.Timers.Timer aTimer = new System.Timers.Timer();
+            aTimer.Elapsed += new ElapsedEventHandler(OnTimedEvent);
+            aTimer.Interval = 1000;
+            aTimer.Enabled = true;
+
+            
+        }
+        private void OnTimedEvent(object source, ElapsedEventArgs e)
+        {
+            Random random = new Random();
+            lowerPressure = random.Next(60, 80);
+            upperPressure = random.Next(100, 150);
+            heartRate = random.Next(60, 100);
+            UpdateText();
+         
+        }
+
+        private void UpdateText()
+        {
+            // Use the Dispatcher to update the UI element on the UI thread
+            Application.Current.Dispatcher.Invoke(() =>
+            {
+                lowerBp.Content = lowerPressure;
+                higherBp.Content = upperPressure;
+                bpm.Content = heartRate;
+            });
         }
 
         private void btnExit_Click(object sender, RoutedEventArgs e)

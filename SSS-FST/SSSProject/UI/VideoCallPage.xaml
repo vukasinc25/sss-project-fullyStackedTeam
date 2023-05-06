@@ -24,22 +24,92 @@
                 <ColumnDefinition></ColumnDefinition>
             </Grid.ColumnDefinitions>
             <TextBox Name="txtCoachInfo"
+                     IsReadOnly="True"
                      Grid.Column="0"
                      Height="50"
                      VerticalAlignment="Top"></TextBox>
 
             <TextBox Name="txtClientInfo"
                      Grid.Column="1"
+                     IsReadOnly="True"
                      Height="50"
                      TextAlignment="Right"
                      VerticalAlignment="Top"></TextBox>
         </Grid>
-        <TextBox Grid.Row="1"
-                 Grid.Column="1"
-                 Text="KAMERA"
-                 TextAlignment="Center"
-                 ></TextBox>
+        <Grid Grid.Row="1" >
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="125"></ColumnDefinition>
+                    <ColumnDefinition></ColumnDefinition>
+                </Grid.ColumnDefinitions>
 
+            <Border Grid.Row="1" BorderBrush="Black" BorderThickness="5">
+                <Grid Grid.Column="0" Grid.Row="1">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition></ColumnDefinition>
+                        <ColumnDefinition></ColumnDefinition>
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition></RowDefinition>
+                        <RowDefinition></RowDefinition>
+                        <RowDefinition></RowDefinition>
+                        <RowDefinition></RowDefinition>
+                        <RowDefinition></RowDefinition>
+                        <RowDefinition></RowDefinition>
+                    </Grid.RowDefinitions>
+
+                    <Label Grid.Row="0"
+                     Grid.Column="0"
+                     Content="SMART" 
+                           HorizontalAlignment="Right"
+                     VerticalAlignment="Center"
+                     ></Label>
+                    <Label Grid.Row="0"
+                     Grid.Column="1"
+                     Content="WATCH" 
+                           HorizontalAlignment="Left"
+                     VerticalAlignment="Center"
+                     ></Label>
+
+
+                    <Label Grid.Column="0" Grid.Row="1" Content="Lower BP" Height="25" HorizontalAlignment="Center"
+                     VerticalAlignment="Center"/>
+                    <Label
+                     Grid.Column="1"
+                     Grid.Row="1"
+                        HorizontalAlignment="Center"
+                     VerticalAlignment="Center"
+                     Name="lowerBp"
+                     Content="0"
+                     />
+
+                    <Label Grid.Column="0" Grid.Row="2" Content="Higher BP" HorizontalAlignment="Center"
+                     VerticalAlignment="Center"></Label>
+                    <Label Grid.Row="2"
+                     Grid.Column="1"
+                     Name="higherBp"
+                     HorizontalAlignment="Center"
+                     VerticalAlignment="Center"
+                     Content="0"
+                     ></Label>
+
+                    <Label Grid.Column="0" Grid.Row="3" Content="BPM" HorizontalAlignment="Center"
+                     VerticalAlignment="Center"></Label>
+                    <Label Grid.Row="3"
+                     Grid.Column="1"
+                     Name="bpm"
+                           HorizontalAlignment="Center"
+                     VerticalAlignment="Center"
+                     Content="0"
+                     />
+
+                </Grid>
+            </Border>
+            <Label Grid.Row="1"
+                     Grid.Column="1"
+                     HorizontalAlignment="Center"
+                     Content="CAMERA"
+                     ></Label>
+            </Grid>
         <WrapPanel Grid.Row="2" Grid.Column="1" HorizontalAlignment="Center" VerticalAlignment="Bottom" Margin="5 5 5 5">
             <Button
                Height="40"

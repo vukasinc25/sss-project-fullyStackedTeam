@@ -19,6 +19,8 @@ insert into Props (Name) values ('5kg weights')
 insert into Props (Name) values ('Treadmill')
 insert into Props (Name) values ('Exercise bike')
 
+update Coaches set Profit = 20000 where id = 1;
+
 
 select * from Goals
 select * from HasGoals

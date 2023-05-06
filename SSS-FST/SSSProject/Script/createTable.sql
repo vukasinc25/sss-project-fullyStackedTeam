@@ -137,4 +137,3 @@ create table Coments(
 )
 select * from Coaches
 delete from Coments
-update Coaches set Profit = 20000 where id = 2;
