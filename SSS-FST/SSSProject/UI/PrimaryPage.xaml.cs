@@ -85,7 +85,7 @@ namespace SSSProject.UI
 
                 DataContext = Client;
             }
-            else if(Coach.User.isAdmin.Equals(true))
+            else if (Coach.User.isAdmin.Equals(true))
             {
                 AdminTabItem.Visibility = Visibility.Visible;
 
@@ -196,7 +196,7 @@ namespace SSSProject.UI
 
         private void DgAppointments_AutoGeneratingColumn(object sender, DataGridAutoGeneratingColumnEventArgs e)
         {
-            if (e.PropertyName == "Id" || e.PropertyName == "ClientId" || 
+            if (e.PropertyName == "Id" || e.PropertyName == "ClientId" ||
                 e.PropertyName == "CoachId" || e.PropertyName == "Client")
             {
                 e.Column.Visibility = Visibility.Collapsed;
@@ -255,7 +255,7 @@ namespace SSSProject.UI
             }
         }
 
-        private void ViewCoach( DataGrid Selected)
+        private void ViewCoach(DataGrid Selected)
         {
             Binding firstName = new Binding();
             firstName.Path = new PropertyPath("Coach.User.FirstName");
@@ -344,7 +344,7 @@ namespace SSSProject.UI
             {
                 ShowComments(selected);
             }
-            
+
         }
 
         private void DgAppointments_MouseUp(object sender, MouseButtonEventArgs e)
@@ -366,23 +366,21 @@ namespace SSSProject.UI
         private void BtnStartAppointment_Click(object sender, RoutedEventArgs e)
         {
             Appointment appointment = DgBookedAppointments.SelectedItem as Appointment;
-            if(appointment != null)
+            if (appointment != null)
             {
                 Window.Content = new VideoCallPage(Window, this, appointment.CoachId, appointment.ClientId);
             }
         }
 
-<<<<<<< Updated upstream
         private void UnacceptedCoaches_Click(object sender, RoutedEventArgs e)
         {
             Console.WriteLine("azazaaz");
             var unacceptedCoachesWindow = new CoachAprooval();
             unacceptedCoachesWindow.Show();
-=======
+        }
         private void Button_Click_1(object sender, RoutedEventArgs e)
         {
             Window.Content = new StatisticsPage(Window);
->>>>>>> Stashed changes
         }
     }
 }
