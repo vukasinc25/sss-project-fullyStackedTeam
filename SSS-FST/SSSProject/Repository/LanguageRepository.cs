@@ -64,31 +64,29 @@ namespace SSSProject.Repository
 
         public Language GetById(int id)
         {
+            using (SqlConnection conn = new SqlConnection(Config.CONNECTION_STRING))
             {
-                using (SqlConnection conn = new SqlConnection(Config.CONNECTION_STRING))
+                string commandText = $"select * from Languages where id={id}";
+                SqlDataAdapter dataAdapter = new SqlDataAdapter(commandText, conn);
+
+                DataSet ds = new DataSet();
+
+                dataAdapter.Fill(ds, "Languages");
+                if (ds.Tables["Languages"].Rows.Count > 0)
                 {
-                    string commandText = $"select * from Languages where id={id}";
-                    SqlDataAdapter dataAdapter = new SqlDataAdapter(commandText, conn);
+                    var row = ds.Tables["Languages"].Rows[0];
 
-                    DataSet ds = new DataSet();
-
-                    dataAdapter.Fill(ds, "Languages");
-                    if (ds.Tables["Languages"].Rows.Count > 0)
+                    var language = new Language
                     {
-                        var row = ds.Tables["Languages"].Rows[0];
+                        Id = (int)row["id"],
+                        Name = row["Name"] as string,
+                    };
 
-                        var language = new Language
-                        {
-                            Id = (int)row["id"],
-                            Name = row["Name"] as string,
-                        };
-
-                        return language;
-                    }
+                    return language;
                 }
-
-                return null;
             }
+
+            return null;
         }
 
         public void Update(int id, Language language)

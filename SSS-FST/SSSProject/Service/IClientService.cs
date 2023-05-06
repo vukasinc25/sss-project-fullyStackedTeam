@@ -11,12 +11,12 @@ namespace SSS_FullyStackedTeam.Service
     internal interface IClientService
     {
         List<Client> GetAll();
-        Client GetById(int id);
+        Client GetById(int? id);
         int Add(Client client);
         void Update(int id, Client client);
         void Delete(int id);
         List<Goal> GetAllGoals();
-        void GetAllIllnesses();
-        void GetAllProps();
+        List<Illness> GetAllIllnesses();
+        List<Prop> GetAllProps();
     }
 }

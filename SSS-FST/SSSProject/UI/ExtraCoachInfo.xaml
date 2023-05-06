@@ -1,4 +1,4 @@
-﻿<Page x:Class="SSSProject.UI.ExtraClientInfo"
+﻿<Page x:Class="SSSProject.UI.ExtraCoachInfo"
       xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
       xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
@@ -6,7 +6,7 @@
       xmlns:local="clr-namespace:SSSProject.UI"
       mc:Ignorable="d" 
       d:DesignHeight="650" d:DesignWidth="900"
-      Title="ExtraClientInfo">
+      Title="ExtraCoachInfo">
     <Page.Resources>
         <Style TargetType="Label">
             <Setter Property="Height" Value="26"/>
@@ -42,33 +42,21 @@
             <StackPanel Grid.Column="1"
                     VerticalAlignment="Center">
 
-                <Label Content="Height:"></Label>
+                <Label Content="Diploma:"></Label>
 
                 <TextBox Name="TxtHeight"
-                         Text="{Binding Path = Height}"></TextBox>
+                         Text="{Binding Path = DiplomaName}"></TextBox>
 
-                <Label Content="Weight:"></Label>
+                <Label Content="Sertificat:"></Label>
 
                 <TextBox Name="TxtWeight"
-                         Text="{Binding Path = Weight}"></TextBox>
+                         Text="{Binding Path = SertificateName}"></TextBox>
 
-                <Label Content="Goals:"></Label>
+                <Label Content="Title:"></Label>
 
-                <ListBox x:Name="LbxGoals"
-                         SelectionMode="Multiple">
-                </ListBox>
+                <TextBox Name="TxtTitle" 
+                         Text="{Binding Path=Title}"/>
 
-                <Label Content="Illnesses:"></Label>
-
-                <ListBox Name="LbxIllnesses"
-                         SelectionMode="Multiple">
-                </ListBox>
-
-                <Label Content="Props:"></Label>
-
-                <ListBox Name="LbxProps"
-                         SelectionMode="Multiple">
-                </ListBox>
 
                 <WrapPanel HorizontalAlignment="Right">
 

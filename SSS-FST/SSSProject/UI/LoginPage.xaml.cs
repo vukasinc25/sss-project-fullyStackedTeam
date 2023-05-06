@@ -57,6 +57,11 @@ namespace SSS_FullyStackedTeam.UI
             {
                 MessageBox.Show("Incorrect Email or Password!");
             }
+            else if (user.isAdmin == true)
+            {
+                Data.Instance.LoggedInUser = user;
+                Window.Content = Window.Content = new PrimaryPage(Window);
+            }
             else
             {
                 foreach (Client current in clientService.GetAll())
@@ -64,6 +69,7 @@ namespace SSS_FullyStackedTeam.UI
                     if (current.UserId == user.Id)
                     {
                         Data.Instance.LoggedInClient = current;
+                        Data.Instance.LoggedInUser = current.User;
                         break;
                     }
                 }
@@ -75,13 +81,14 @@ namespace SSS_FullyStackedTeam.UI
                         if (current.UserId == user.Id)
                         {
                             Data.Instance.LoggedInCoach = current;
+                            Data.Instance.LoggedInUser = current.User;
                             break;
                         }
                     }
 
                     if (Data.Instance.LoggedInCoach.DiplomaName == "")
                     {
-                        //Window.Content = new 
+                        Window.Content = new ExtraCoachInfo(Window, this);
                     }
                     else
                     {
@@ -92,7 +99,7 @@ namespace SSS_FullyStackedTeam.UI
                 {
                     if(Data.Instance.LoggedInClient.Weight == 0)
                     {
-                        Window.Content = new ExtraClientInfo(Window);
+                        Window.Content = new ExtraClientInfo(Window, this);
                     }
                     else
                     {
@@ -107,5 +114,6 @@ namespace SSS_FullyStackedTeam.UI
         {
             Window.Content = PreviousPage;
         }
+
     }
 }

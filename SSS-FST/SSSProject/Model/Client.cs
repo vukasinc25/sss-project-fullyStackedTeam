@@ -13,14 +13,14 @@ namespace SSS_FullyStackedTeam.Model
         public double Height { get; set; }  
         public double Weight { get; set; }
         public List<Goal> Goals { get; set; }
-        public List<string> Illnesses { get; set; }
-        public List<string> Props { get; set; }
+        public List<Illness> Illnesses { get; set; }
+        public List<Prop> Props { get; set; }
 
         public Client()
         {
             Goals = new List<Goal>();
-            Illnesses = new List<string>();
-            Props = new List<string>();
+            Illnesses = new List<Illness>();
+            Props = new List<Prop>();
         }
 
         private User user;
@@ -45,6 +45,11 @@ namespace SSS_FullyStackedTeam.Model
                 Weight = Weight,
                 User = User.Clone() as User
             };
+        }
+
+        public override string ToString()
+        {
+            return $"{User.FirstName} {User.LastName}";
         }
     }
 }

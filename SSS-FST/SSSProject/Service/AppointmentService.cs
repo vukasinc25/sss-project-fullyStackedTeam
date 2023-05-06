@@ -11,6 +11,12 @@ namespace SSS_FullyStackedTeam.Service
     public class AppointmentService : IAppointmentService
     {
         private IAppointmentRepository appointmentRepository;
+
+        public AppointmentService()
+        {
+            appointmentRepository = new AppointmentRepository();
+        }
+
         public int Add(Appointment appointment)
         {
             return appointmentRepository.Add(appointment);

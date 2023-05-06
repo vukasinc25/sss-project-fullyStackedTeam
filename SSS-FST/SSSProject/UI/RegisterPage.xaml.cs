@@ -31,13 +31,13 @@ namespace SSS_FullyStackedTeam.UI
         public Page PreviousPage { get; set; }
 
         private List<Language> languages;
+        private User User;
+        private bool isAddMode;
 
         IUserService userService = new UserService();
         IClientService clientService = new ClientService();
         ICoachService coachService = new CoachService();
         ILanguageService languageService = new LanguageService();
-
-        private User User;
 
         public RegisterPage(MainWindow window, Page previousPage)
         {
@@ -52,6 +52,41 @@ namespace SSS_FullyStackedTeam.UI
 
             User = new User();
             DataContext = User;
+            isAddMode = true;
+        }
+
+        public RegisterPage(MainWindow window, Page previousPage, User user)
+        {
+            InitializeComponent();
+            Window = window;
+            PreviousPage = previousPage;
+            User = user.Clone() as User;
+
+            LblRadioMenu.Visibility = Visibility.Collapsed;
+            RdbClient.Visibility = Visibility.Collapsed;
+            RdbCoach.Visibility = Visibility.Collapsed;
+
+            PwbLoginPassword.Password = User.Password;
+            languages = languageService.GetAll();
+
+            CbLanguages.ItemsSource = languages;
+            CbLanguages.SelectedValuePath = "Id";
+            CbLanguages.SelectedValue = User.PrimaryLanguageId;
+
+            LbxLanguages.ItemsSource = languages;
+            foreach (Language language in languages)
+            {
+                foreach (Language userLanguage in User.SecondaryLanguages)
+                {
+                    if (language.Id == userLanguage.Id)
+                    {
+                        LbxLanguages.SelectedItems.Add(language);
+                    }
+                }
+            }
+
+            DataContext = User;
+            isAddMode = false;
         }
 
         private void BtnConfirm_Click(object sender, RoutedEventArgs e)
@@ -64,38 +99,47 @@ namespace SSS_FullyStackedTeam.UI
                 User.SecondaryLanguages.Add(language);
             }
 
-            int userId = userService.Add(User);
-
-            if ((bool)RdbClient.IsChecked)
+            if (isAddMode)
             {
-                Client client = new Client
+                int userId = userService.Add(User);
+
+                if ((bool)RdbClient.IsChecked)
                 {
-                    User = userService.GetById(userId),
-                    Height = 0,
-                    Weight = 0
-                    
-                };
+                    Client client = new Client
+                    {
+                        User = userService.GetById(userId),
+                        Height = 0,
+                        Weight = 0
 
-                clientService.Add(client);
+                    };
+
+                    clientService.Add(client);
+                }
+
+                if ((bool)RdbCoach.IsChecked)
+                {
+                    Coach coach = new Coach
+                    {
+                        User = userService.GetById(userId),
+                        DiplomaName = "",
+                        SertificateName = "",
+                        Title = "",
+                        Profit = 0
+
+                    };
+
+                    coachService.Add(coach);
+                }
+
+                MessageBox.Show("Successful Registration");
+                Window.Content = new MainPage(Window);
             }
-
-            if ((bool)RdbCoach.IsChecked)
+            else
             {
-                Coach coach = new Coach
-                {
-                    User = userService.GetById(userId),
-                    DiplomaName = "",
-                    SertificateName = "",
-                    Title = "",
-                    Profit = 0
-                    
-                };
+                userService.Update(User.Id, User);
 
-                coachService.Add(coach);
+                Window.Content = new PrimaryPage(Window);
             }
-
-            MessageBox.Show("Successful Registration");
-            Window.Content = new MainPage(Window);
         }
 
         private void BtnCancel_Click(object sender, RoutedEventArgs e)

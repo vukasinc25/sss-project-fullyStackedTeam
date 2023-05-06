@@ -15,6 +15,14 @@ namespace SSS_FullyStackedTeam.Model
         public double Profit { get; set; }
         public int NumberSuccessfulAppointments { get; set; }
 
+        public bool IsSent { get; set; }
+        public double Rank { get; set; }
+
+        public Coach()
+        {
+            IsSent = false;
+        }
+
         private User user;
 
         public int UserId { get; set; }
@@ -37,8 +45,15 @@ namespace SSS_FullyStackedTeam.Model
                 SertificateName = SertificateName,
                 Title = Title,
                 Profit = Profit,
-                User = User.Clone() as User
+                User = User.Clone() as User,
+                IsSent = IsSent,
+                Rank = Rank
             };
+        }
+
+        public override string ToString()
+        {
+            return User.ToString();
         }
     }
 }

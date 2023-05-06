@@ -28,18 +28,27 @@ namespace SSSProject.UI
 
         public Client client = Data.Instance.LoggedInClient;
 
+        private Page PrevousPage { get; set;} 
+
         private IClientService clientService = new ClientService();
 
         private List<Goal> goals;
+        private List<Illness> illnesses;
+        private List<Prop> props;
 
-        public ExtraClientInfo(MainWindow window)
+        public ExtraClientInfo(MainWindow window, Page prevousPage)
         {
             InitializeComponent();
             Window = window;
             goals = clientService.GetAllGoals();
+            illnesses = clientService.GetAllIllnesses();
+            props = clientService.GetAllProps();
             LbxGoals.ItemsSource = goals;
+            LbxIllnesses.ItemsSource = illnesses;
+            LbxProps.ItemsSource = props;
 
             DataContext = client;
+            PrevousPage = prevousPage;
         }
 
         private void BtnConfirm_Click(object sender, RoutedEventArgs e)
@@ -49,12 +58,12 @@ namespace SSSProject.UI
                 client.Goals.Add(goal);
             }
 
-            foreach(string illness in LbxIllnesses.SelectedItems)
+            foreach(Illness illness in LbxIllnesses.SelectedItems)
             {
                 client.Illnesses.Add(illness);
             }
 
-            foreach(string prop in LbxProps.SelectedItems)
+            foreach(Prop prop in LbxProps.SelectedItems)
             {
                 client.Props.Add(prop);
             }
@@ -66,7 +75,7 @@ namespace SSSProject.UI
 
         private void BtnCancel_Click(object sender, RoutedEventArgs e)
         {
-            Window.Content = new MainPage(Window);
+                Window.Content = PrevousPage;
         }
     }
 }

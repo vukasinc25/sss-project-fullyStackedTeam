@@ -1,12 +1,12 @@
-﻿<Page x:Class="SSS_FullyStackedTeam.UI.LoginPage"
+﻿<Page x:Class="SSSProject.UI.ComentPage"
       xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
       xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
-      xmlns:local="clr-namespace:SSS_FullyStackedTeam.UI"
+      xmlns:local="clr-namespace:SSSProject.UI"
       mc:Ignorable="d" 
-      d:DesignHeight="650" d:DesignWidth="900"
-      Title="LoginPage">
+      Title="ComentPage"
+      Height="650" Width="900">
     <Page.Resources>
         <Style TargetType="Label">
             <Setter Property="Height" Value="26"/>
@@ -21,12 +21,7 @@
         <Style TargetType="Button">
             <Setter Property="Width" Value="65"></Setter>
             <Setter Property="Height" Value="25"></Setter>
-            <Setter Property="Margin" Value="10 10 0 0"></Setter>
-        </Style>
-        <Style TargetType="PasswordBox">
-            <Setter Property="Height" Value="26"/>
-            <Setter Property="Margin" Value="0 0 0 0"></Setter>
-            <Setter Property="VerticalContentAlignment" Value="Center"></Setter>
+            <Setter Property="Margin" Value="10 10 0 10"></Setter>
         </Style>
     </Page.Resources>
 
@@ -40,27 +35,23 @@
         <StackPanel Grid.Column="1"
                     VerticalAlignment="Center">
 
-            <Label Content="Email:"></Label>
+            <Label Content="Rate the other user:"></Label>
 
-            <TextBox Name="TxtLoginEmail"></TextBox>
+            <TextBox Name="txtRating"></TextBox>
 
-            <Label Content="Password:"></Label>
+            <Label Content="Comment:"></Label>
 
-            <PasswordBox Name="PwbLoginPassword"></PasswordBox>
+            <TextBox Name="txtComent"
+                     Height="50"></TextBox>
 
             <WrapPanel HorizontalAlignment="Right">
 
-                <Button Name="BtnConfirm" 
-                        Content="Confirm" 
-                        Click="BtnConfirm_Click"></Button>
-
-                <Button Name="BtnCancel" 
-                        Content="Cancel" 
-                        Click="BtnCancel_Click"></Button>
+                <Button Content="Add Comment"
+                        Width="100"
+                        Click="Button_Click"></Button>
 
             </WrapPanel>
 
         </StackPanel>
-
     </Grid>
 </Page>

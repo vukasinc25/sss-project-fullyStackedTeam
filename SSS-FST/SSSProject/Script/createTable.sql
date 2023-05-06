@@ -3,9 +3,9 @@ drop table HasGoals
 drop table HasProps
 drop table HasLanguages
 drop table Appointments
+drop table Coments
 drop table Clients
 drop table Coaches
-drop table Comments
 drop table Users
 drop table Languages
 drop table Goals
@@ -44,17 +44,9 @@ create table Users(
 	City varchar(30),
 	Country varchar(30),
 	PrimaryLanguageId int,
+	isAdmin bit,
 	constraint FK_Languages_Users
 	foreign key (PrimaryLanguageId) references Languages (id)
-)
-
-create table Comments(
-	id int identity(1,1) primary key,
-	Contents varchar(200),
-	Rating float,
-	UserId int,
-	constraint FK_Users_Comments
-	foreign key (UserId) references Users (id)
 )
 
 create table Clients(
@@ -73,17 +65,23 @@ create table Coaches(
 	Title varchar(40),
 	NumberSuccessfulAppointments int,
 	Profit float,
+	IsSent bit,
+	Rank float,
 	UserId int,
 	constraint FK_Users_Coaches
 	foreign key (UserId) references Users (id)
 )
 
 create table Appointments(
-	id int identity(1,1) primary key,
-	TrainerId int,
-	constraint FK_Coaches_Appointments
-	foreign key (TrainerId) references Coaches (id)
-
+    id int identity(1,1) primary key,
+    CoachId int,
+    ClientId int,
+    TimeOfStart varchar(30),
+    Duration varchar(30),
+    Price float,
+    Status bit not null,
+    constraint FK_Coaches_Appointments
+    foreign key (CoachId) references Coaches (id),
 )
 
 create table HasIllneses(
@@ -92,6 +90,8 @@ create table HasIllneses(
 	primary key(ClientId, IllnessId),
 	constraint FK_Users_HasIllnesses
 	foreign key (ClientId) references Clients (id),
+	constraint FK_Illnesses_HasIllnesses
+	foreign key (IllnessId) references Illnesses (id),
 )
 
 create table HasGoals(
@@ -100,6 +100,8 @@ create table HasGoals(
 	primary key(ClientId, GoalId),
 	constraint FK_Users_HasGoals
 	foreign key (ClientId) references Clients (id),
+	constraint FK_Goals_HasGoals
+	foreign key (GoalId) references Goals (id),
 )
 
 create table HasProps(
@@ -108,6 +110,8 @@ create table HasProps(
 	primary key(ClientId, PropId),
 	constraint FK_Clients_HasProps
 	foreign key (ClientId) references Clients (id),
+	constraint FK_Props_HasProps
+	foreign key (PropId) references Props (id),
 )
 
 create table HasLanguages(
@@ -119,3 +123,17 @@ create table HasLanguages(
 	constraint FK_Languages_HasLanguages
 	foreign key (LangId) references Languages (id)
 )
+
+create table Coments(
+	Id int identity(1,1) primary key,
+	Coment varchar (255),
+	Rating float,
+	CoachId int,
+    ClientId int,
+	constraint FK_Coaches_Coments
+    foreign key (CoachId) references Coaches (id),
+    constraint FK_Clients_Coments
+    foreign key (ClientId) references Clients (id)
+)
+select * from Coaches
+delete from Coments

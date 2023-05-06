@@ -1,22 +1,19 @@
-﻿using System;
+﻿using SSS_FullyStackedTeam.Model;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace SSS_FullyStackedTeam.Model
+namespace SSSProject.Model
 {
-    public class Appointment : ICloneable
+    public class Coments : ICloneable
     {
         public int Id { get; set; }
-        public DateTime DateAndTimeOfStart { get; set; }
-        public TimeSpan Duration { get; set; }
-        public double Price { get; set; }
-        public bool Status { get; set; }
-
+        public string Coment { get; set; }
+        public double Rating { get; set; }
         private Coach coach;
         public int CoachId { get; set; }
-
         public Coach Coach
         {
             get => coach;
@@ -28,30 +25,31 @@ namespace SSS_FullyStackedTeam.Model
         }
 
         private Client client;
-        public int? ClientId { get; set; }
-
+        public int ClientId { get; set; }
         public Client Client
         {
             get => client;
             set
             {
                 client = value;
-                ClientId = client?.Id;
+                ClientId = client.Id;
             }
         }
-
         public object Clone()
         {
-            return new Appointment
+            return new Coments
             {
                 Id = Id,
-                DateAndTimeOfStart = DateAndTimeOfStart,
-                Duration = Duration,
-                Price = Price,
-                Status = Status,
+                Coment = Coment,
+                Rating = Rating,
                 Coach = Coach.Clone() as Coach,
                 Client = Client.Clone() as Client
             };
+        }
+
+        public override string ToString()
+        {
+            return Coment + "    "+"Rating: " + Rating;
         }
     }
 }

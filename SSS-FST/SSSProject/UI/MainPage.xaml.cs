@@ -1,4 +1,6 @@
-﻿using SSSProject;
+﻿using SSS_FullyStackedTeam.Model;
+using SSSProject;
+using SSSProject.Model;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -26,6 +28,8 @@ namespace SSS_FullyStackedTeam.UI
         public MainPage(MainWindow window)
         {
             InitializeComponent();
+            Data.Instance.LoggedInClient = new Client();
+            Data.Instance.LoggedInCoach = new Coach();
             Window = window;
         }
 
