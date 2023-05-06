@@ -57,6 +57,11 @@ namespace SSS_FullyStackedTeam.UI
             {
                 MessageBox.Show("Incorrect Email or Password!");
             }
+            else if (user.isAdmin == true)
+            {
+                Data.Instance.LoggedInUser = user;
+                Window.Content = Window.Content = new PrimaryPage(Window);
+            }
             else
             {
                 foreach (Client current in clientService.GetAll())
@@ -64,6 +69,7 @@ namespace SSS_FullyStackedTeam.UI
                     if (current.UserId == user.Id)
                     {
                         Data.Instance.LoggedInClient = current;
+                        Data.Instance.LoggedInUser = current.User;
                         break;
                     }
                 }
@@ -75,6 +81,7 @@ namespace SSS_FullyStackedTeam.UI
                         if (current.UserId == user.Id)
                         {
                             Data.Instance.LoggedInCoach = current;
+                            Data.Instance.LoggedInUser = current.User;
                             break;
                         }
                     }
@@ -100,7 +107,7 @@ namespace SSS_FullyStackedTeam.UI
                     }
                 }
             }
-            Data.Instance.LoggedInUser = user;
+            
         }
 
         private void BtnCancel_Click(object sender, RoutedEventArgs e)

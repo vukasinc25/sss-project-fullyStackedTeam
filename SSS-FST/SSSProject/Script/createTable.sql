@@ -3,7 +3,6 @@ drop table HasGoals
 drop table HasProps
 drop table HasLanguages
 drop table Appointments
-drop table Comments
 drop table Coments
 drop table Clients
 drop table Coaches
@@ -12,7 +11,6 @@ drop table Languages
 drop table Goals
 drop table Illnesses
 drop table Props
-drop table Coments
 
 create table Languages(
 	id int identity(1,1) primary key,
@@ -84,8 +82,6 @@ create table Appointments(
     Status bit not null,
     constraint FK_Coaches_Appointments
     foreign key (CoachId) references Coaches (id),
-    --constraint FK_Clients_Appointments
-    --foreign key (ClientId) references Clients (id)
 )
 
 create table HasIllneses(
