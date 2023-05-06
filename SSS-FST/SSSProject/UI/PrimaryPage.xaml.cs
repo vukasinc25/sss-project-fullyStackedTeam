@@ -48,7 +48,43 @@ namespace SSSProject.UI
             RefreshAll();
 
 
-            if (Coach.SertificateName == null)
+            if (User.isAdmin == true)
+            {
+                AdminTabItem.Visibility = Visibility.Visible;
+
+                lblProfileDiploma.Visibility = Visibility.Collapsed;
+                lblProfileDiplomaValue.Visibility = Visibility.Collapsed;
+
+                lblProfileSertificat.Visibility = Visibility.Collapsed;
+                lblProfileSertificatValue.Visibility = Visibility.Collapsed;
+
+                lblTitle.Visibility = Visibility.Collapsed;
+                lblTitle1.Visibility = Visibility.Collapsed;
+
+                lblProfit.Visibility = Visibility.Collapsed;
+                lblProfit1.Visibility = Visibility.Collapsed;
+
+                lblSuccessfulApointments.Visibility = Visibility.Collapsed;
+                lblSuccessfulApointments1.Visibility = Visibility.Collapsed;
+
+                BtnAddAppointment.Visibility = Visibility.Collapsed;
+
+                lblHeightA.Visibility = Visibility.Collapsed;
+                lblHeightAA.Visibility = Visibility.Collapsed;
+
+                lblWeightA.Visibility = Visibility.Collapsed;
+                lblWeightAA.Visibility = Visibility.Collapsed;
+
+                lblGoalsA.Visibility = Visibility.Collapsed;
+                lblGoalsAA.Visibility = Visibility.Collapsed;
+
+                lblIllnesesA.Visibility = Visibility.Collapsed;
+                lblIllnesesAA.Visibility = Visibility.Collapsed;
+
+                lblPropsA.Visibility = Visibility.Collapsed;
+                lblPropsAA.Visibility = Visibility.Collapsed;
+            }
+            else if (Coach.SertificateName == null)
             {
                 AdminTabItem.Visibility = Visibility.Collapsed;
                 lblProfileDiploma.Visibility = Visibility.Collapsed;
@@ -85,24 +121,19 @@ namespace SSSProject.UI
 
                 DataContext = Client;
             }
-            else if(Coach.User.isAdmin.Equals(true))
-            {
-                AdminTabItem.Visibility = Visibility.Visible;
-
-                DataContext = Coach;
-            }
-            else if (Coach.IsSent == true)
-            {
-                AppointentsTabItem.Visibility = Visibility.Visible;
-
-                DataContext = Coach;
-            }
             else
             {
                 AdminTabItem.Visibility = Visibility.Collapsed;
-                AppointentsTabItem.Visibility = Visibility.Collapsed;
 
-
+                if (Coach.IsSent == true)
+                {
+                    AppointentsTabItem.Visibility = Visibility.Visible;
+                }
+                else
+                {
+                    AppointentsTabItem.Visibility = Visibility.Collapsed;
+                }
+                
                 lblProfileHeight.Visibility = Visibility.Collapsed;
                 lblProfileHeightValue.Visibility = Visibility.Collapsed;
 
