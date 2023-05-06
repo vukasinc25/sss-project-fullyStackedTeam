@@ -25,6 +25,8 @@ namespace SSSProject.UI
     public partial class ComentPage : Page
     {
         int id = 0;
+        int broj = 0;
+        double rank = 0;
         public MainWindow Window { get; set; }
 
         private IComentRepository comentRepository = new ComentsRepository();
@@ -41,7 +43,8 @@ namespace SSSProject.UI
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            if(client.Weight != null)
+            Coach coach1 = coachService.GetById(id);
+            if (client.Weight != null)
             {
                 coment.Client = client;
             }
@@ -56,9 +59,16 @@ namespace SSSProject.UI
             else
             {
                 coment.Rating = Convert.ToDouble(txtRating.Text);
-                coment.Coach = coachService.GetById(id);
+                coment.Coach = coach1;
                 coment.Coment = txtComent.Text;
                 comentRepository.Add(coment);
+                foreach(Coments coment in comentRepository.GetAll().Where(p => p.CoachId == coach1.Id))
+                {
+                    rank += coment.Rating;
+                    broj++;
+                }
+                coach1.Rank = rank / broj;
+                coachService.Update(coach1.Id, coach1);
                 Window.Content = new PrimaryPage(Window);
             }
         }

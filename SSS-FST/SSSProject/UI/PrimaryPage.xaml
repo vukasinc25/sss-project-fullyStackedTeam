@@ -505,9 +505,13 @@
                             <Button Content="Cancel"
                                     Name="BtnCancelAppointment"
                                     Click="BtnCancelAppointment_Click"></Button>
-
+    
                         </WrapPanel>
 
+                        <Button Grid.Column="1"
+                                Grid.Row="2"
+                                Content="Profit"
+                                Click="Button_Click_1"></Button>
                         <ListBox Grid.Column="1"
                                  Grid.Row="1"
                                  Name="LbxComments"></ListBox>

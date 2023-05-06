@@ -68,6 +68,7 @@ create table Coaches(
 	NumberSuccessfulAppointments int,
 	Profit float,
 	IsSent bit,
+	Rank float,
 	UserId int,
 	constraint FK_Users_Coaches
 	foreign key (UserId) references Users (id)
@@ -138,3 +139,6 @@ create table Coments(
     constraint FK_Clients_Coments
     foreign key (ClientId) references Clients (id)
 )
+select * from Coaches
+delete from Coments
+update Coaches set Profit = 20000 where id = 2;

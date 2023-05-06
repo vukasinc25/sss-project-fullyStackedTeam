@@ -19,9 +19,9 @@ namespace SSS_FullyStackedTeam.Repository
             {
                 conn.Open();
                 SqlCommand command = conn.CreateCommand();
-                command.CommandText = @"insert into Coaches (DiplomaName, SertificateName, Title, NumberSuccessfulAppointments, Profit, IsSent, UserId)
+                command.CommandText = @"insert into Coaches (DiplomaName, SertificateName, Title, NumberSuccessfulAppointments, Profit, IsSent, Rank, UserId)
                 output inserted.id
-                values (@DiplomaName, @SertificateName, @Title, @NumberSuccessfulAppointments, @Profit, @IsSent, @UserId)";
+                values (@DiplomaName, @SertificateName, @Title, @NumberSuccessfulAppointments, @Profit, @IsSent, @Rank, @UserId)";
 
                 command.Parameters.Add(new SqlParameter("DiplomaName", coach.DiplomaName));
                 command.Parameters.Add(new SqlParameter("SertificateName", coach.SertificateName));
@@ -29,6 +29,7 @@ namespace SSS_FullyStackedTeam.Repository
                 command.Parameters.Add(new SqlParameter("NumberSuccessfulAppointments", coach.NumberSuccessfulAppointments));
                 command.Parameters.Add(new SqlParameter("Profit", coach.Profit));
                 command.Parameters.Add(new SqlParameter("IsSent", coach.IsSent));
+                command.Parameters.Add(new SqlParameter("Rank", coach.Rank));
                 command.Parameters.Add(new SqlParameter("UserId", coach.UserId));
 
                 return (int)command.ExecuteScalar();
@@ -62,6 +63,7 @@ namespace SSS_FullyStackedTeam.Repository
                         Title = (string)row["Title"],
                         Profit = (double)row["Profit"],
                         IsSent = (bool)row["IsSent"],
+                        Rank = (double)row["Rank"],
                         NumberSuccessfulAppointments = (int)row["NumberSuccessfulAppointments"],
                         UserId = (int)row["UserId"]
                     };
@@ -95,6 +97,7 @@ namespace SSS_FullyStackedTeam.Repository
                         Title = (string)row["Title"],
                         Profit = (double)row["Profit"],
                         IsSent = (bool)row["IsSent"],
+                        Rank = (double)row["Rank"],
                         NumberSuccessfulAppointments = (int)row["NumberSuccessfulAppointments"],
                         UserId = (int)row["UserId"]
                     };
@@ -116,7 +119,7 @@ namespace SSS_FullyStackedTeam.Repository
             {
                 conn.Open();
                 SqlCommand command = conn.CreateCommand();
-                command.CommandText = @"update Coaches set DiplomaName = @DiplomaName, SertificateName = @SertificateName, Title = @Title, NumberSuccessfulAppointments = @NumberSuccessfulAppointments, Profit = @Profit, IsSent = @IsSent where id = @id";
+                command.CommandText = @"update Coaches set DiplomaName = @DiplomaName, SertificateName = @SertificateName, Title = @Title, NumberSuccessfulAppointments = @NumberSuccessfulAppointments, Profit = @Profit, IsSent = @IsSent, Rank = @Rank where id = @id";
 
                 command.Parameters.Add(new SqlParameter("DiplomaName", coach.DiplomaName));
                 command.Parameters.Add(new SqlParameter("SertificateName", coach.SertificateName));
@@ -124,6 +127,7 @@ namespace SSS_FullyStackedTeam.Repository
                 command.Parameters.Add(new SqlParameter("NumberSuccessfulAppointments", coach.NumberSuccessfulAppointments));
                 command.Parameters.Add(new SqlParameter("Profit", coach.Profit));
                 command.Parameters.Add(new SqlParameter("IsSent", coach.IsSent));
+                command.Parameters.Add(new SqlParameter("Rank", coach.Rank));
                 command.Parameters.Add(new SqlParameter("id", id));
 
                 command.ExecuteScalar();

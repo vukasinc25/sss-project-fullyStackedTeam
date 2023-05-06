@@ -372,11 +372,17 @@ namespace SSSProject.UI
             }
         }
 
+<<<<<<< Updated upstream
         private void UnacceptedCoaches_Click(object sender, RoutedEventArgs e)
         {
             Console.WriteLine("azazaaz");
             var unacceptedCoachesWindow = new CoachAprooval();
             unacceptedCoachesWindow.Show();
+=======
+        private void Button_Click_1(object sender, RoutedEventArgs e)
+        {
+            Window.Content = new StatisticsPage(Window);
+>>>>>>> Stashed changes
         }
     }
 }

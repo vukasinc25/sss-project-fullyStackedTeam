@@ -16,6 +16,7 @@ namespace SSS_FullyStackedTeam.Model
         public int NumberSuccessfulAppointments { get; set; }
 
         public bool IsSent { get; set; }
+        public double Rank { get; set; }
 
         public Coach()
         {
@@ -45,7 +46,8 @@ namespace SSS_FullyStackedTeam.Model
                 Title = Title,
                 Profit = Profit,
                 User = User.Clone() as User,
-                IsSent = IsSent
+                IsSent = IsSent,
+                Rank = Rank
             };
         }
 
