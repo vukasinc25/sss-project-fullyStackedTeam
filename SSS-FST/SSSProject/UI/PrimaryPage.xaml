@@ -505,13 +505,9 @@
                             <Button Content="Cancel"
                                     Name="BtnCancelAppointment"
                                     Click="BtnCancelAppointment_Click"></Button>
-    
-                        </WrapPanel>
 
-                        <Button Grid.Column="1"
-                                Grid.Row="2"
-                                Content="Profit"
-                                Click="Button_Click_1"></Button>
+                        </WrapPanel>
+                        
                         <ListBox Grid.Column="1"
                                  Grid.Row="1"
                                  Name="LbxComments"></ListBox>
@@ -520,7 +516,14 @@
 
                 </TabItem>
                 <TabItem Header="Admin" Name="AdminTabItem">
-                    <Button Content="Unaccepted Coaches" Name="UnacceptedCoaches" Width="120" Click="UnacceptedCoaches_Click"></Button>
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition></ColumnDefinition>
+                            <ColumnDefinition></ColumnDefinition>
+                        </Grid.ColumnDefinitions>
+                    <Button Grid.Column="0" Content="Unaccepted Coaches" Name="UnacceptedCoaches" Width="120" Click="UnacceptedCoaches_Click"></Button>
+                    <Button Grid.Column="1" Content="Statistic" Click="Button_Click_2"></Button>
+                    </Grid>
                 </TabItem>
 
             </TabControl>

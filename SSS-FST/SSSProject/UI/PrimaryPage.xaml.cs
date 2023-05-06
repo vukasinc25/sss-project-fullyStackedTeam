@@ -409,7 +409,8 @@ namespace SSSProject.UI
             var unacceptedCoachesWindow = new CoachAprooval();
             unacceptedCoachesWindow.Show();
         }
-        private void Button_Click_1(object sender, RoutedEventArgs e)
+
+        private void Button_Click_2(object sender, RoutedEventArgs e)
         {
             Window.Content = new StatisticsPage(Window);
         }
